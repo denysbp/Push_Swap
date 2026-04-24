@@ -503,3 +503,24 @@ Targets obrigatórios:
 - operations -> comandos permitidos pelo subject
 - sort -> lógica de ordenação
 - output -> impressão dos movimentos
+
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/includes",
+        "${workspaceFolder}/libft",
+        "${workspaceFolder}/ft_printf"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/cc",
+      "cStandard": "c99",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+}
+
+C/C++: Reset IntelliSense Database
+vais ter de meter isso no teu json pedro depois faço para ti
