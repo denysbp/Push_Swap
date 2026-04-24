@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 00:20:02 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/24 20:54:07 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/24 22:25:52 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 int	ft_printf(const char *str, ...);

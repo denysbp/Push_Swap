@@ -1,4 +1,4 @@
-CCFLAGS := -Wextra -Wall -Werror
+CCFLAGS := -Wextra -Wall -Werror -I../includes
 NAME := libft.a
 SRCS := srcs/
 SRC = \
@@ -63,4 +63,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re $(NAME)

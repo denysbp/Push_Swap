@@ -6,12 +6,12 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 23:15:24 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/20 16:10:55 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/24 22:36:56 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-denys ***bonfim
+
 static int	ft_count(const char *s, char c)
 {
 	int	i;

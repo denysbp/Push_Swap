@@ -1,6 +1,6 @@
 NAME:= libftprintf.a
 
-CCFLAGS = cc -Wextra -Wall -Werror
+CCFLAGS = cc -Wextra -Wall -Werror -I../includes
 
 FILES = \
 	ft_printf.c\
@@ -11,7 +11,7 @@ FILES = \
 
 OBJ = $(FILES:.c=.o)
 
-libft_path = ./libft
+libft_path = ../libft
 
 libft = $(libft_path)/libft.a
 
@@ -38,4 +38,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re $(NAME)
