@@ -6,20 +6,12 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:30:53 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/29 01:53:27 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/29 02:02:28 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	swap(int *a, int *b)
-{
-	int	swap;
-
-	swap = *a;
-	*a = *b;
-	*b = swap;
-}
 void	bubble_sort(t_stack **stack)
 {
 	int	troca;

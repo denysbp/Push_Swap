@@ -12,7 +12,7 @@ typedef	struct s_stack
 }	t_stack;
 
 t_stack	*last_stack(t_stack *lst);
-void	swap(t_stack **a, t_stack **b);
+void	swap(int *a, int *b);
 t_stack	*new_stack(int content);
 void	stack_add_back(t_stack **stack, t_stack *new);
 size_t	stack_size(t_stack *stack);
