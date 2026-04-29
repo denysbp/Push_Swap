@@ -1,8 +1,7 @@
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	(void)argc;
-	(void)argv;
+	
 	return (0);
 }
