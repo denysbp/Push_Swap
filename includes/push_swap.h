@@ -6,13 +6,12 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 01:13:25 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:20:13 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 # include <stdbool.h>
 # include "ft_printf.h"
 
@@ -38,4 +37,6 @@ void	error();
 bool	string_overflow(char *string);
 long	ft_atoi_safe(const char *str);
 bool	check_numbers(char *string);
+bool	valide_signal(char *string);
+bool	is_signal(char string);
 #endif
