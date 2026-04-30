@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:29 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 01:13:10 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:51:06 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,38 @@ bool	check_numbers(char *string)
 		string++;
 	}
 	return (true);
+}
+
+bool	is_signal(char string)
+{
+	if (string == '+' || string == '-')
+	{
+		return (true);
+	}
+	return (false);
+}
+
+bool	valide_signal(char *string)
+{
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		if ((string[i] == '+' || string[i] == '-')
+			&& (string[i + 1] == '+' || string[i + 1] ==  '-'))
+		{
+			return (true);
+		}
+		else if (ft_isdigit(string[i]) && is_signal(string[i + 1]))
+		{
+			return (true);
+		}
+		else if (is_signal(string[i]) && ft_isdigit(string[i + 1]))
+		{
+			return (false);
+		}
+		i++;
+	}
+	return (false);
 }
