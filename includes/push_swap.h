@@ -6,13 +6,14 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/29 19:13:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/04/30 01:13:25 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdbool.h>
 # include "ft_printf.h"
 
 typedef struct s_stack
@@ -32,5 +33,9 @@ void	stack_add_front(t_stack **stack, t_stack *new);
 float	disorder_rate(t_stack *stack);
 void	bubble_sort(t_stack **stack);
 void	sort_choose(t_stack **stack);
-
+bool	is_duplicate(t_stack *stack);
+void	error();
+bool	string_overflow(char *string);
+long	ft_atoi_safe(const char *str);
+bool	check_numbers(char *string);
 #endif
