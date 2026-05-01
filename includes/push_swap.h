@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 15:20:13 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:01:59 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ long	ft_atoi_safe(const char *str);
 bool	check_numbers(char *string);
 bool	valide_signal(char *string);
 bool	is_signal(char string);
+void	stack_clear(t_stack **lst);
+void	free_split(char **split);
+t_stack	*parsing(char **argv);
+void	stack_delone(t_stack *lst);
+bool	validate_args(char **argv);
+
+
 #endif
