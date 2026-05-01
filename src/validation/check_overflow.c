@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:32 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 19:39:02 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/01 20:26:40 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	string_overflow(char *string)
 {
 	long	number;
 
-	if (ft_strlen(string) >= 11)
+	if (ft_strlen(string) >= 13)
 	{
 		return (true);
 	}
@@ -25,8 +25,5 @@ bool	string_overflow(char *string)
 	{
 		return (true);
 	}
-	else
-	{
-		return (false);
-	}
+	return (false);
 }

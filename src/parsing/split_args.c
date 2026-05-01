@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:22 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 19:09:01 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/01 19:49:32 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*parsing(char **argv)
 	{
 		split = ft_split(argv[i], ' ');
 		j = 0;
-		while(split[j])
+		while (split[j])
 		{
 			if (!create_numbers(&a, split[j]))
 			{

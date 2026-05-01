@@ -6,12 +6,12 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 23:13:30 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 14:47:11 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/01 19:45:49 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 int	ft_atoi(const char *str)
 {
 	int	i;
