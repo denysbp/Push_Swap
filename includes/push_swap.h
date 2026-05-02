@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 01:13:25 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/02 21:09:17 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ void	error();
 bool	string_overflow(char *string);
 long	ft_atoi_safe(const char *str);
 bool	check_numbers(char *string);
+int 	op_swap_stack(t_stack **name);
+int		op_rot_stack(t_stack **stack);
+int		op_rev_stack(t_stack **stack);
+int		op_swap_both(t_stack **s1, t_stack **s2);
+int		op_rot_both(t_stack **s1, t_stack **s2);
+int		op_rot_both(t_stack **s1, t_stack **s2);
+
 #endif
