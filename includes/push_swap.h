@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 15:20:13 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/02 12:10:28 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,17 @@ float	disorder_rate(t_stack *stack);
 void	bubble_sort(t_stack **stack);
 void	sort_choose(t_stack **stack);
 bool	is_duplicate(t_stack *stack);
-void	error();
+void	error(void);
 bool	string_overflow(char *string);
 long	ft_atoi_safe(const char *str);
 bool	check_numbers(char *string);
 bool	valide_signal(char *string);
 bool	is_signal(char string);
+void	stack_clear(t_stack **lst);
+void	free_split(char **split);
+t_stack	*parsing(char **argv);
+void	stack_delone(t_stack *lst);
+bool	validate_args(char **argv);
+int		radix_sorts(char **nb);
+
 #endif

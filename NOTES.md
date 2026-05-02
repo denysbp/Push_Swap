@@ -524,3 +524,4 @@ Targets obrigatórios:
 
 C/C++: Reset IntelliSense Database
 vais ter de meter isso no teu json pedro depois faço para ti
+
