@@ -3,10 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:39 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/29 19:07:40 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:00:06 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+int op_sa(t_stack **name)
