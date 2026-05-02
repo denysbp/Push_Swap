@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 19:47:01 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/02 12:10:28 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	free_split(char **split);
 t_stack	*parsing(char **argv);
 void	stack_delone(t_stack *lst);
 bool	validate_args(char **argv);
+int		radix_sorts(char **nb);
 
 #endif
