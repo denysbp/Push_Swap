@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:29 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 11:00:18 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:03:54 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	check_numbers(char *string)
 {
 	while (*string)
 	{
-		if (ft_isalpha(*string))
+		if (*string != 32 && !ft_isdigit(*string) && !is_signal(*string))
 		{
 			return (false);
 		}

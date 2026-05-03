@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:26 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 10:59:01 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:03:26 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ bool	is_duplicate(t_stack *stack)
 {
 	t_stack	*temp_stack;
 
-	temp_stack = stack;
-	while (stack -> next)
+	while (stack)
 	{
-		while (temp_stack -> next)
+		temp_stack = stack -> next;
+		while (temp_stack)
 		{
-			if (stack -> value == temp_stack -> next ->value)
+			if (stack -> value == temp_stack ->value)
 			{
 				return (true);
 			}

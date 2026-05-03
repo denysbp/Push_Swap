@@ -6,14 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 10:57:54 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:04:09 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
+#include <stdio.h>
 
-//teste das funções pedrooooo
 int	main(int argc, char **argv)
 {
 	if (argc == 1)
@@ -38,6 +37,7 @@ int	main(int argc, char **argv)
 	if (is_duplicate(a))
 	{
 		error();
+		stack_clear(&a);
 		return (-1);
 	}
 	float d = disorder_rate(a);
@@ -62,13 +62,15 @@ int	main(int argc, char **argv)
 	printf("disorder: %.2f\n",disorder_rate(a));
 
 	sort_choose(&a);
-	int i = 0;
-	int d = stack_size(a);
-	while(i < d)
+	int s = stack_size(a);
+	printf("stack size: %u<\n", s);
+	t_stack *temp = a;
+	while (s != 0)
 	{
-		printf("%d\n", a->value);
-		a = a->next;
-		i++;
+		printf(">%d<\n", temp ->value);
+		temp = temp-> next;
+		s--;
 	}
+	stack_clear(&a);
 	return (0);
 }
