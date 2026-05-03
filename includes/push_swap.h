@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 16:39:30 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 16:43:48 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	stack_clear(t_stack **lst);
 void	stack_delone(t_stack *lst);
 void	bubble_sort(t_stack **stack);
 void	sort_choose(t_stack **stack);
-//void	error();
+void	error(void);
 bool	is_duplicate(t_stack *stack);
 bool	string_overflow(char *string);
 bool	valide_signal(char *string);
