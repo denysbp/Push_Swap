@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 16:40:32 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 16:51:18 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	radix_rank(t_stack **stack)
 		{
 			if (cur->value > cur->next->value)
 			{
-				ft_swap(&cur->index, &cur->next->index);
+				swap(&cur->index, &cur->next->index);
 				swapped = 1;
 			}
 			cur = cur->next;
