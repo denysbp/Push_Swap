@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/02 21:09:17 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/03 10:59:45 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,16 @@ int		op_rev_stack(t_stack **stack);
 int		op_swap_both(t_stack **s1, t_stack **s2);
 int		op_rot_both(t_stack **s1, t_stack **s2);
 int		op_rot_both(t_stack **s1, t_stack **s2);
+bool	valide_signal(char *string);
+bool	is_signal(char string);
+void	stack_clear(t_stack **lst);
+void	free_split(char **split);
+t_stack	*parsing(char **argv);
+void	stack_delone(t_stack *lst);
+bool	validate_args(char **argv);
+int		radix_sorts(char **nb);
+t_stack	*find_max(t_stack *a);
+t_stack	*find_min(t_stack *a);
+
 
 #endif

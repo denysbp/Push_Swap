@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/30 01:14:12 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 10:57:54 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,39 @@
 //teste das funções pedrooooo
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	t_stack *a = NULL;
-
-	stack_add_back(&a, new_stack(3));
-	stack_add_back(&a, new_stack(7));
-	stack_add_back(&a, new_stack(1));
-	stack_add_back(&a, new_stack(9));
-	stack_add_back(&a, new_stack(8));
-	stack_add_back(&a, new_stack(22));
-	stack_add_back(&a, new_stack(4));
-
+	if (argc == 1)
+		return (-1);
+	t_stack *a;;
+	if (!validate_args(argv))
+	{
+		error();
+		return (-1);
+	}
+	a = parsing(argv);
+	if (!a)
+	{
+		error();
+		stack_clear(&a);
+		return (-1);
+	}
+	// t_stack *ta = find_max(a);
+	// t_stack *tas = find_min(a);
+	// printf("max = %d", ta->value);
+	// printf("min = %d", tas->value);
 	if (is_duplicate(a))
 	{
 		error();
 		return (-1);
 	}
-	if (!check_numbers(argv[1]))
+	float d = disorder_rate(a);
+	if (d == 0)
+		return (0);
+	printf("disordem: %.2f\n", d);
+	sort_choose(&a);
+	int s = stack_size(a);
+	printf("stack size: %u<\n", s);
+	t_stack *temp = a;
+	while (s != 0)
 	{
 		error();
 		return (-1);
