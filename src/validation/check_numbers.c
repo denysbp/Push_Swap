@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:29 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 20:30:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:03:54 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ bool	valide_signal(char *string)
 	i = 0;
 	while (string[i])
 	{
-		if ((string[i] == '+' || string[i] == '-')
-			&& (string[i + 1] == '+' || string[i + 1] == '-'))
+		if (is_signal(string[i])
+			&& is_signal(string[i + 1]))
 		{
 			return (true);
 		}
@@ -50,8 +50,7 @@ bool	valide_signal(char *string)
 		{
 			return (true);
 		}
-		else if ((string[i] == '+' || string[i] == '-')
-			&& string[i + 1] == '\0')
+		else if (is_signal(string[i]) && string[i + 1] == '\0')
 			return (true);
 		i++;
 	}

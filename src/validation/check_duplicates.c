@@ -6,9 +6,10 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:26 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/01 20:09:30 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:03:26 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
