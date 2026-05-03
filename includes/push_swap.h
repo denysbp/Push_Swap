@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 10:59:45 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:26:49 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*last_stack(t_stack *lst);
+t_stack	*first_stack(t_stack *lst);
+void	stack_clear(t_stack **stack);
 void	swap(int *a, int *b);
 t_stack	*new_stack(int content);
 void	stack_add_back(t_stack **stack, t_stack *new);
@@ -43,7 +45,7 @@ int		op_rot_stack(t_stack **stack);
 int		op_rev_stack(t_stack **stack);
 int		op_swap_both(t_stack **s1, t_stack **s2);
 int		op_rot_both(t_stack **s1, t_stack **s2);
-int		op_rot_both(t_stack **s1, t_stack **s2);
+int		op_rev_both(t_stack **s1, t_stack **s2);
 bool	valide_signal(char *string);
 bool	is_signal(char string);
 void	stack_clear(t_stack **lst);
