@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 11:45:59 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/03 13:37:36 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	stack_clear(t_stack **lst);
 void	stack_delone(t_stack *lst);
 void	bubble_sort(t_stack **stack);
 void	sort_choose(t_stack **stack);
-void	error();
+//void	error();
 bool	is_duplicate(t_stack *stack);
 bool	string_overflow(char *string);
 bool	valide_signal(char *string);
 bool	is_signal(char string);
 bool	check_numbers(char *string);
 bool	validate_args(char **argv);
-int 	op_swap_stack(t_stack **name);
+int		op_swap_stack(t_stack **name);
 int		op_rot_stack(t_stack **stack);
 int		op_rev_stack(t_stack **stack);
 int		op_swap_both(t_stack **s1, t_stack **s2);
@@ -56,6 +56,5 @@ t_stack	*find_max(t_stack *a);
 t_stack	*first_stack(t_stack *lst);
 t_stack	*parsing(char **argv);
 t_stack	*find_min(t_stack *a);
-
 
 #endif
