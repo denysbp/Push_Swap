@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:33 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/02 21:43:14 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/03 11:26:37 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	op_rev_stack(t_stack **stack)
 	return (1);
 }
 
-int	op_rot_both(t_stack **s1, t_stack **s2)
+int	op_rev_both(t_stack **s1, t_stack **s2)
 {
 	int	check;
 
