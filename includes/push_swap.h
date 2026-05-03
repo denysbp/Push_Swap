@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/05/03 11:02:37 by deferrei         ###   ########.fr       */
-=======
-/*   Updated: 2026/05/03 11:45:59 by pecoelho         ###   ########.fr       */
->>>>>>> pedro
+/*   Updated: 2026/05/03 11:55:50 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
