@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:06:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:31:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
