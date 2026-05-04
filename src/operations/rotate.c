@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 15:57:14 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:22:30 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ra(t_stack **a)
 void	rb(t_stack **b)
 {
 	op_rot_stack(b);
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 int	op_rot_both(t_stack **s1, t_stack **s2)

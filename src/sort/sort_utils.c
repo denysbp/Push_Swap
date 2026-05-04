@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 14:53:52 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:18:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*find_max(t_stack *a)
 	max = a;
 	while (a)
 	{
-		if (a -> value > max -> value)
+		if (a -> index > max -> index)
 		{
 			max = a;;
 		}
@@ -35,7 +35,7 @@ t_stack	*find_min(t_stack *a)
 	min = a;
 	while (a)
 	{
-		if (a -> value < min -> value)
+		if (a -> index < min -> index)
 		{
 			min = a;
 		}

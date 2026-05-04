@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 14:55:41 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:13:32 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,18 @@ int	main(int argc, char **argv)
 	float d = disorder_rate(a);
 	if (d == 0)
 		return (0);
-	printf("disordem: %.2f\n", d);
+	// printf("disordem: %.2f\n", d);
+	assign_index(a);
 	sort_choose(&a);
-	size_t s = stack_size(a);
-	printf("stack size: %lu<\n", s);
-	t_stack *temp = a;
-	while (s != 0)
-	{
-		printf(">%d<\n", temp ->value);
-		temp = temp-> next;
-		s--;
-	}
+	// size_t s = stack_size(a);
+	// printf("stack size: %lu<\n", s);
+	// t_stack *temp = a;
+	// while (s != 0)
+	// {
+	// 	printf(">%d<\n", temp ->value);
+	// 	temp = temp-> next;
+	// 	s--;
+	// }
 	stack_clear(&a);
 	return (0);
 }

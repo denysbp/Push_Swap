@@ -6,52 +6,30 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 16:51:18 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:06:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_indexing(t_stack **stack)
+void	assign_index(t_stack *stack)
 {
-	t_stack	*head;
-	int		i;
-
-	if (!stack)
-		return ;
-	head = *stack;
-	i = 0;
-	while (*stack)
-	{
-		(*stack)->index = i;
-		*stack = (*stack)->next;
-		i++;
-	}
-	*stack = head;
-}
-
-void	radix_rank(t_stack **stack)
-{
-	t_stack	*head;
 	t_stack	*cur;
-	int		swapped;
+	t_stack	*cmp;
+	int		index;
 
-	head = *stack;
-	stack_indexing(stack);
-	swapped = 1;
-	while (swapped)
+	cur = stack;
+	while (cur)
 	{
-		swapped = 0;
-		cur = head;
-		while (cur && cur->next)
+		index = 0;
+		cmp = stack;
+		while (cmp)
 		{
-			if (cur->value > cur->next->value)
-			{
-				swap(&cur->index, &cur->next->index);
-				swapped = 1;
-			}
-			cur = cur->next;
+			if (cmp->value < cur->value)
+				index++;
+			cmp = cmp->next;
 		}
+		cur->index = index;
+		cur = cur->next;
 	}
-	*stack = head;
 }

@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:47 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 18:13:42 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:28:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_sqrt(size_t chuncks)
 	size_t	i;
 
 	i = 0;
-	while (i * i <= chuncks)
+	while (i * i < chuncks)
 	{
 		i++;
 	}
@@ -34,13 +34,13 @@ void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size)
 	limit = chunck_size;
 	while (*a)
 	{
-		if ((size_t)(*a)->index <= i)
+		if ((size_t)(*a)->index < i)
 		{
 			pb(a,b);
 			rb(b);
 			i++;
 		}
-		else if ((size_t)(*a)->index <= limit)
+		else if ((size_t)(*a)->index < limit)
 		{
 			pb(a,b);
 			i++;

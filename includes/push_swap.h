@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 18:04:12 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 22:08:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	rb(t_stack **b);
 void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size);
 void	push_back_sorted(t_stack **a,t_stack **b);
 void	chunck_sort(t_stack	**stack);
+void	assign_index(t_stack *stack);
 bool	is_duplicate(t_stack *stack);
 bool	string_overflow(char *string);
 bool	valide_signal(char *string);
