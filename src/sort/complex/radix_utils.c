@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 23:31:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 00:14:17 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,25 @@ void	assign_index(t_stack *stack)
 		}
 		cur->index = index;
 		cur = cur->next;
+	}
+}
+
+void	radix(t_stack **stack_a, t_stack **b)
+{
+	t_stack	*temp;
+	int		op_count;
+
+	if (!stack_a)
+		return ;
+	op_count = 0;
+	while (stack_a)
+	{
+		temp = (*stack_a)->next;
+		if (!((*stack_a)->index & 1))
+			op_push(stack_a, *stack_a);
+		else if ((*stack_a)->index & 1)
+			op_rot_stack(stack_a);
+		op_count += 1;
+		*stack_a = temp;
 	}
 }
