@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 15:57:45 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 00:28:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ void	selection_min(t_stack **stack)
 	b = NULL;
 	min_pos = 0;
 	size = 0;
-	while (*stack)
-	{
-		push_a(stack, &b, min_pos, size);
-	}
+	push_a(stack, &b, min_pos, size);
 	while (b)
 	{
 		pa(&b, stack);
