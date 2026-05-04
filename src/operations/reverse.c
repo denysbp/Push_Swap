@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:33 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 11:26:37 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/04 15:54:41 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,48 @@
 
 int	op_rev_stack(t_stack **stack)
 {
+	t_stack	*current;
 	int		temp;
 	int		itemp;
 
-	*stack = last_stack(*stack);
-	if (!stack || !*stack || !(*stack)->prev)
+	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-	while ((*stack)->prev)
+
+	current = last_stack(*stack);
+
+	while (current->prev)
 	{
-		temp = (*stack)->value;
-		(*stack)->value = (*stack)->prev->value;
-		(*stack)->prev->value = temp;
-		itemp = (*stack)->index;
-		(*stack)->index = (*stack)->prev->value;
-		(*stack)->prev->index = itemp;
-		*stack = (*stack)->prev;
+		temp = current->value;
+		current->value = current->prev->value;
+		current->prev->value = temp;
+		itemp = current->index;
+		current->index = current->prev->index;
+		current->prev->index = itemp;
+		current = current->prev;
 	}
 	return (1);
+}
+void	rra(t_stack **a)
+{
+	op_rev_stack(a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack **b)
+{
+	op_rev_stack(b);
+	ft_printf("rrb\n");
 }
 
 int	op_rev_both(t_stack **s1, t_stack **s2)
 {
-	int	check;
+	int	check1;
+	int	check2;
 
-	if (!s1 || !s2 || !*s1 || !*s2)
-		return (0);
-	*s1 = last_stack(*s1);
-	check = op_rev_stack(s1);
-	if (!check)
-		return (0);
-	*s2 = last_stack(*s2);
-	check = op_rev_stack(s2);
-		if (!check)
+	check1 = op_rev_stack(s1);
+	check2 = op_rev_stack(s2);
+		if (!check1 || !check2)
 			return (0);
+	ft_printf("rrr\n");
 	return (1);
 }

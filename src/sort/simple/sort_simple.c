@@ -6,30 +6,52 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 11:03:13 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 15:57:45 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(t_stack **stack)
+void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size)
 {
-	int		troca;
-	t_stack	*atual;
+	size_t	count;
+	t_stack	*min;
 
-	troca = 1;
-	while (troca)
+	while (*stack)
 	{
-		troca = 0;
-		atual = *stack;
-		while (atual && atual ->next)
+		min = find_min(*stack);
+		min_pos = get_position(*stack, min);
+		size = stack_size(*stack);
+		if (min_pos <= size / 2)
 		{
-			if (atual ->value > atual ->next->value)
-			{
-				swap(&atual ->value, &atual ->next->value);
-				troca = 1;
-			}
-			atual = atual ->next;
+			while (min_pos--)
+				ra(stack);
 		}
+		else
+		{
+			count = size - min_pos;
+			while (count--)
+				rra(stack);
+		}
+		pb(stack, b);
+	}
+}
+
+void	selection_min(t_stack **stack)
+{
+	t_stack	*b;
+	size_t	min_pos;
+	size_t	size;
+
+	b = NULL;
+	min_pos = 0;
+	size = 0;
+	while (*stack)
+	{
+		push_a(stack, &b, min_pos, size);
+	}
+	while (b)
+	{
+		pa(&b, stack);
 	}
 }

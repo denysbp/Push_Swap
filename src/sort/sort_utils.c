@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/02 15:30:34 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 14:53:52 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,19 @@ t_stack	*find_min(t_stack *a)
 		a = a -> next;
 	}
 	return (min);
+}
+
+size_t	get_position(t_stack *stack, t_stack *target)
+{
+	size_t	pos;
+
+	pos = 0;
+	while (stack)
+	{
+		if (stack == target)
+			return (pos);
+		stack = stack->next;
+		pos++;
+	}
+	return (0);
 }
