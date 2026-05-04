@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:22:30 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:58:53 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	op_rot_stack(t_stack **stack)
 		temp = cur->value;
 		cur->value = cur->next->value;
 		cur->next->value = temp;
-
 		itemp = cur->index;
 		cur->index = cur->next->index;
 		cur->next->index = itemp;
@@ -35,16 +34,26 @@ int	op_rot_stack(t_stack **stack)
 	return (1);
 }
 
-void	ra(t_stack **a)
+int	ra(t_stack **a)
 {
-	op_rot_stack(a);
+	int	i;
+
+	i = op_rot_stack(a);
+	if (!i)
+		return (0);
 	ft_printf("ra\n");
+	return (i);
 }
 
-void	rb(t_stack **b)
+int	rb(t_stack **b)
 {
-	op_rot_stack(b);
+	int	i;
+
+	i = op_rot_stack(b);
+	if (!i)
+		return (0);
 	ft_printf("rb\n");
+	return (i);
 }
 
 int	op_rot_both(t_stack **s1, t_stack **s2)
@@ -57,7 +66,7 @@ int	op_rot_both(t_stack **s1, t_stack **s2)
 	if (!check)
 		return (0);
 	check = op_rot_stack(s2);
-		if (!check)
-			return (0);
+	if (!check)
+		return (0);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:33 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 15:54:41 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:59:13 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	op_rev_stack(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-
 	current = last_stack(*stack);
-
 	while (current->prev)
 	{
 		temp = current->value;
@@ -35,16 +33,27 @@ int	op_rev_stack(t_stack **stack)
 	}
 	return (1);
 }
-void	rra(t_stack **a)
+
+int	rra(t_stack **a)
 {
-	op_rev_stack(a);
+	int	i;
+
+	i = op_rev_stack(a);
+	if (!i)
+		return (0);
 	ft_printf("rra\n");
+	return (1);
 }
 
-void	rrb(t_stack **b)
+int	rrb(t_stack **b)
 {
-	op_rev_stack(b);
+	int	i;
+
+	i = op_rev_stack(b);
+	if (!i)
+		return (0);
 	ft_printf("rrb\n");
+	return (1);
 }
 
 int	op_rev_both(t_stack **s1, t_stack **s2)
@@ -54,8 +63,8 @@ int	op_rev_both(t_stack **s1, t_stack **s2)
 
 	check1 = op_rev_stack(s1);
 	check2 = op_rev_stack(s2);
-		if (!check1 || !check2)
-			return (0);
+	if (!check1 || !check2)
+		return (0);
 	ft_printf("rrr\n");
 	return (1);
 }
