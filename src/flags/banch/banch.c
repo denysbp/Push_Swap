@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:22:06 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t		strategy(bench_mark bench)
+size_t		strategy(t_bench_mark bench)
 {
 	if (bench.strategy == 0)
 	{
@@ -37,7 +37,7 @@ size_t		strategy(bench_mark bench)
 	return (0);
 }
 
-void	print_bench(bench_mark bench)
+void	print_bench(t_bench_mark bench)
 {
 	write(2, "[bench] disorder:  ", 19);
 	write(2, "23,4", 4);
@@ -68,7 +68,7 @@ void	print_bench(bench_mark bench)
 	write(2, &bench.rrr, 4);
 }
 
-bench_mark	init_bench(bench_mark bench)
+t_bench_mark	init_bench(t_bench_mark bench)
 {
 	bench.display = false;
 	bench.pa = 0;

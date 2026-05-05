@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:11:36 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	assign_index(t_stack *stack)
 	}
 }
 
-int	stackb_cleanup(t_stack **a, t_stack **b, bench_mark bench)
+int	stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark bench)
 {
 	size_t	n;
 	int		op_count;
@@ -48,7 +48,7 @@ int	stackb_cleanup(t_stack **a, t_stack **b, bench_mark bench)
 	return (op_count);
 }
 
-int	stack_selection(t_stack **a, t_stack **b, int mask, bench_mark bench)
+int	stack_selection(t_stack **a, t_stack **b, int mask, t_bench_mark bench)
 {
 	t_stack	*temp;
 

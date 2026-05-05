@@ -6,27 +6,27 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:28:11 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:23:32 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
+int		parse_flags(t_stack **stack, char **argv, t_bench_mark bench, int i)
 {
-	if (ft_strncmp("--bench", argv[1], 9))
+	if (ft_strncmp("--bench", argv[i], 9))
 	{
+		i++;;
 		argv++;
-
 		bench.display = true;
-		if (parse_flags(stack, argv, bench) < 0)
+		if (parse_flags(stack, argv, bench, i) < 0)
 			return (-1);
 	}
-	else if (ft_strncmp("--simple", argv[1], 10))
+	else if (ft_strncmp("--simple", argv[i], 10))
 	{
-		argv++;
+		i++;
+		argv = argv + i;
 		bench.strategy = 0;
-		*stack = parsing(argv);
 		if (parsing_vaidations(stack, argv) < 0)
 		{
 			return (-1);
@@ -34,11 +34,10 @@ int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
 		selection_min(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--medium", argv[1], 10))
+	else if (ft_strncmp("--medium", argv[i], 10))
 	{
-		argv++;
+		argv = argv + i;
 		bench.strategy = 1;
-		*stack = parsing(argv);
 		if (parsing_vaidations(stack, argv) < 0)
 		{
 			return (-1);
@@ -46,11 +45,10 @@ int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
 		chunck_sort(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--complex", argv[1], 10))
+	else if (ft_strncmp("--complex", argv[i], 10))
 	{
-		argv++;
+		argv = argv + i;
 		bench.strategy = 2;
-		*stack = parsing(argv);
 		if (parsing_vaidations(stack, argv) < 0)
 		{
 			return (-1);
@@ -58,11 +56,10 @@ int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
 		radix(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--adaptive", argv[1], 11))
+	else if (ft_strncmp("--adaptive", argv[i], 11))
 	{
-		argv++;
+		argv = argv + i;
 		bench.strategy = 3;
-		*stack = parsing(argv);
 		if (parsing_vaidations(stack, argv) < 0)
 		{
 			return (-1);
@@ -73,7 +70,6 @@ int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
 	else
 	{
 		bench.strategy = 3;
-		*stack = parsing(argv);
 		if (parsing_vaidations(stack, argv) < 0)
 		{
 			return (-1);

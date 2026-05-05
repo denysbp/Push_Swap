@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:02:19 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	op_rot_stack(t_stack **stack)
 	return (1);
 }
 
-int	ra(t_stack **a, bench_mark bench)
+int	ra(t_stack **a, t_bench_mark bench)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ int	ra(t_stack **a, bench_mark bench)
 	return (i);
 }
 
-int	rb(t_stack **b, bench_mark bench)
+int	rb(t_stack **b, t_bench_mark bench)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ int	rb(t_stack **b, bench_mark bench)
 	return (i);
 }
 
-int	op_rot_both(t_stack **s1, t_stack **s2, bench_mark bench)
+int	op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark bench)
 {
 	int	check;
 	int	check1;

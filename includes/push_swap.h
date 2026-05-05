@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:43:22 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:17:37 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool			is_signal(char string);
 bool			check_numbers(char *string);
 bool			validate_args(char **argv);
 int				parse_flags(t_stack **stack, char **argv,\
-	t_bench_mark bench);
+	t_bench_mark bench, int i);
 int				parsing_vaidations(t_stack **stack, char **argv);
 int				op_swap_stack(t_stack **name);
 int				op_rot_stack(t_stack **stack);

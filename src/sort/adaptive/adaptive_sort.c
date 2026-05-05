@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:47:10 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_choose(t_stack **stack, bench_mark bench)
+void	sort_choose(t_stack **stack, t_bench_mark bench)
 {
 	float	disorder;
 

@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:47 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:17:41 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_sqrt(size_t chuncks)
 	return (i);
 }
 
-void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, bench_mark bench)
+void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, t_bench_mark bench)
 {
 	size_t	i;
 	size_t	limit;
@@ -52,7 +52,7 @@ void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, bench_mark bench)
 	}
 }
 
-void	push_back_sorted(t_stack **a,t_stack **b, bench_mark bench)
+void	push_back_sorted(t_stack **a,t_stack **b, t_bench_mark bench)
 {
 	size_t	max_pos;
 	size_t	size;

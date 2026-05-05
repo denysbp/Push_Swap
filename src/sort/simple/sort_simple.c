@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 20:19:31 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size, bench_mark bench)
+void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size, t_bench_mark bench)
 {
 	size_t	count;
 	t_stack	*min;
@@ -37,7 +37,7 @@ void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size, bench_mar
 	}
 }
 
-void	selection_min(t_stack **stack, bench_mark bench)
+void	selection_min(t_stack **stack, t_bench_mark bench)
 {
 	t_stack	*b;
 	size_t	min_pos;
