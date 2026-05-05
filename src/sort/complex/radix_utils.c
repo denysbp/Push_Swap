@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 00:17:18 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 15:21:17 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,31 @@ void	assign_index(t_stack *stack)
 	}
 }
 
-void	radix(t_stack **a, t_stack **b)
+int	stackb_cleanup(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
+	size_t	n;
 	int		op_count;
 
-	if (!a)
-		return ;
-	op_count = 0;
-	while (a)
+	n = stack_size(*b);
+	while (n)
 	{
-		temp = (*a)->next;
-		if (!((*a)->index & 1))
-			pb(a, b);
-		else if ((*a)->index & 1)
-			op_rot_stack(a);
-		op_count += 1;
-		*a = temp;
+		op_count += pa(b, a);
+		n--;
 	}
+	return (op_count);
+}
+
+int	stack_selection(t_stack **a, t_stack **b, int mask)
+{
+	t_stack	*temp;
+
+	temp = (*a)->next;
+	if (!((*a)->index & mask))
+		pb(a, b);
+	else if ((*a)->index & mask)
+		op_rot_stack(a);
+	else
+		return (0);
+	*a = temp;
+	return (1);
 }
