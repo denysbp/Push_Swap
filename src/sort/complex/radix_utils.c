@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:06:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 00:17:18 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,25 @@ void	assign_index(t_stack *stack)
 		}
 		cur->index = index;
 		cur = cur->next;
+	}
+}
+
+void	radix(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
+	int		op_count;
+
+	if (!a)
+		return ;
+	op_count = 0;
+	while (a)
+	{
+		temp = (*a)->next;
+		if (!((*a)->index & 1))
+			pb(a, b);
+		else if ((*a)->index & 1)
+			op_rot_stack(a);
+		op_count += 1;
+		*a = temp;
 	}
 }

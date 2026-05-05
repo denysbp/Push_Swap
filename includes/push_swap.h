@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:08:03 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 00:10:38 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,9 @@ void	stack_clear(t_stack **lst);
 void	stack_delone(t_stack *lst);
 void	sort_choose(t_stack **stack);
 void	error(void);
-void	push(t_stack **src, t_stack **dest);
 void	radix_rank(t_stack **stack);
 void	stack_indexing(t_stack **stack);
 void	selection_min(t_stack **stack);
-void	pa(t_stack **b, t_stack **a);
-void	pb(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
 void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size);
 void	push_back_sorted(t_stack **a,t_stack **b);
 void	chunck_sort(t_stack	**stack);
@@ -58,6 +51,13 @@ int		op_rev_stack(t_stack **stack);
 int		op_swap_both(t_stack **s1, t_stack **s2);
 int		op_rot_both(t_stack **s1, t_stack **s2);
 int		op_rev_both(t_stack **s1, t_stack **s2);
+int		push(t_stack **src, t_stack **dest);
+int		pa(t_stack **b, t_stack **a);
+int		pb(t_stack **a, t_stack **b);
+int		rra(t_stack **a);
+int		rrb(t_stack **b);
+int		ra(t_stack **a);
+int		rb(t_stack **b);
 int		radix_sorts(char **nb);
 long	ft_atoi_safe(const char *str);
 size_t	stack_size(t_stack *stack);
