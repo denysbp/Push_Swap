@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 14:35:34 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 17:58:39 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ int		rra(t_stack **a);
 int		rrb(t_stack **b);
 int		ra(t_stack **a);
 int		rb(t_stack **b);
-int		radix_sorts(char **nb);
+int		stackb_cleanup(t_stack **a, t_stack **b);
+int		stack_selection(t_stack **a, t_stack **b, int mask);
+int		radix(t_stack **a, t_stack **b);
 long	ft_atoi_safe(const char *str);
 size_t	stack_size(t_stack *stack);
 size_t	get_position(t_stack *stack, t_stack *target);
