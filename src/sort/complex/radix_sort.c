@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:55 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	radix(t_stack **a, t_bench_mark bench)
+int	radix(t_stack **a, t_bench_mark *bench)
 {
 	t_stack	*b;
 	size_t	n;

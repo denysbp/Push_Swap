@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,31 @@ int	op_rot_stack(t_stack **stack)
 	return (1);
 }
 
-int	ra(t_stack **a, t_bench_mark bench)
+int	ra(t_stack **a, t_bench_mark *bench)
 {
 	int	i;
 
 	i = op_rot_stack(a);
 	if (!i)
 		return (0);
-	bench.ra += 1;
+	bench->ra += 1;
 	ft_printf("ra\n");
 	return (i);
 }
 
-int	rb(t_stack **b, t_bench_mark bench)
+int	rb(t_stack **b, t_bench_mark *bench)
 {
 	int	i;
 
 	i = op_rot_stack(b);
 	if (!i)
 		return (0);
-	bench.rb += 1;
+	bench->rb += 1;
 	ft_printf("rb\n");
 	return (i);
 }
 
-int	op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark bench)
+int	op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark *bench)
 {
 	int	check;
 	int	check1;
@@ -67,11 +67,11 @@ int	op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark bench)
 		return (0);
 	check = op_rot_stack(s1);
 	check1 = op_rot_stack(s2);
-	bench.ra--;
-	bench.rb--;
+	bench->ra--;
+	bench->rb--;
 	if (!check || !check1)
 		return (0);
-	bench.rr++;
+	bench->rr++;
 	if (!check)
 		return (0);
 	return (1);

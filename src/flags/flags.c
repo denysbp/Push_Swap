@@ -6,76 +6,101 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 21:23:32 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 00:12:35 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		parse_flags(t_stack **stack, char **argv, t_bench_mark bench, int i)
+static char	**build_argv_view(char **argv, int start)
 {
-	if (ft_strncmp("--bench", argv[i], 9))
+	char	**view;
+	size_t	count;
+	size_t	index;
+
+	count = 0;
+	while (argv[start + count])
+		count++;
+	view = ft_calloc(count + 2, sizeof(char *));
+	if (!view)
+		return (NULL);
+	view[0] = argv[0];
+	index = 0;
+	while (index < count)
 	{
-		i++;;
-		argv++;
-		bench.display = true;
-		if (parse_flags(stack, argv, bench, i) < 0)
+		view[index + 1] = argv[start + index];
+		index++;
+	}
+	return (view);
+}
+
+static int	run_strategy(t_stack **stack, char **argv, int start)
+{
+	char	**view;
+	int		result;
+
+	view = build_argv_view(argv, start);
+	if (!view)
+		return (-1);
+	result = parsing_vaidations(stack, view);
+	free(view);
+	if (result < 0)
+		return (-1);
+	return (0);
+}
+
+int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
+{
+	if (!argv[i])
+		return (-1);
+	if (ft_strncmp("--bench", argv[i], 9) == 0)
+	{
+		bench->display = true;
+		if (parse_flags(stack, argv, bench, i + 1) < 0)
 			return (-1);
 	}
-	else if (ft_strncmp("--simple", argv[i], 10))
+	else if (ft_strncmp("--simple", argv[i], 10) == 0)
 	{
-		i++;
-		argv = argv + i;
-		bench.strategy = 0;
-		if (parsing_vaidations(stack, argv) < 0)
-		{
+		bench->strategy = 0;
+		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
-		}
+		assign_index(stack);
 		selection_min(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--medium", argv[i], 10))
+	else if (ft_strncmp("--medium", argv[i], 10) == 0)
 	{
-		argv = argv + i;
-		bench.strategy = 1;
-		if (parsing_vaidations(stack, argv) < 0)
-		{
+		bench->strategy = 1;
+		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
-		}
+		assign_index(stack);
 		chunck_sort(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--complex", argv[i], 10))
+	else if (ft_strncmp("--complex", argv[i], 10) == 0)
 	{
-		argv = argv + i;
-		bench.strategy = 2;
-		if (parsing_vaidations(stack, argv) < 0)
-		{
+		bench->strategy = 2;
+		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
-		}
 		radix(stack, bench);
 		return (1);
 	}
-	else if (ft_strncmp("--adaptive", argv[i], 11))
+	else if (ft_strncmp("--adaptive", argv[i], 11) == 0)
 	{
-		argv = argv + i;
-		bench.strategy = 3;
-		if (parsing_vaidations(stack, argv) < 0)
-		{
+		bench->strategy = 3;
+		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
-		}
 		sort_choose(stack, bench);
 		return (1);
 	}
 	else
 	{
-		bench.strategy = 3;
-		if (parsing_vaidations(stack, argv) < 0)
-		{
+		bench->strategy = 3;
+		if (run_strategy(stack, argv, i) < 0)
 			return (-1);
-		}
+		assign_index(stack);
 		sort_choose(stack, bench);
-		return (-1);
+		return (1);
 	}
 	return (0);
 }
@@ -87,7 +112,7 @@ int		parsing_vaidations(t_stack **stack, char **argv)
 		return (-1);
 	}
 	*stack = parsing(argv);
-	if (!stack)
+	if (!*stack)
 	{
 		stack_clear(stack);
 		return (-1);

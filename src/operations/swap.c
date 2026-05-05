@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:39 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 21:15:03 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,31 @@ int	op_swap_stack(t_stack **stack)
 	return (1);
 }
 
-void	sa(t_stack **a, t_bench_mark bench)
+void	sa(t_stack **a, t_bench_mark *bench)
 {
 	op_swap_stack(a);
-	bench.sa++;
+	bench->sa++;
 }
 
-void	sb(t_stack **b, t_bench_mark bench)
+void	sb(t_stack **b, t_bench_mark *bench)
 {
 	op_swap_stack(b);
-	bench.sb++;
+	bench->sb++;
 }
 
-int	op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark bench)
+int	op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench)
 {
 	int	check;
 
 	if (!s1 || !s2 || !*s1 || !*s2)
 		return (0);
 	check = op_swap_stack(s1);
-	bench.sa--;
+	bench->sa--;
 	if (!check)
 		return (0);
 	check = op_swap_stack(s2);
-	bench.sb--;
-	bench.ss++;
+	bench->sb--;
+	bench->ss++;
 	if (!check)
 		return (0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 21:23:53 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	bench = init_bench(bench);
-	if (parse_flags(&a, argv, bench, 1) < 0)
+	if (ft_strncmp(argv[1], "--bench", 9) == 0)
+		bench.display = true;
+	if (parse_flags(&a, argv, &bench, 1) < 0)
 	{
 		error();
 		return (-1);
 	}
 	if (bench.display)
 	{
-		print_bench(bench);
+		print_bench(&bench);
 	}
 	stack_clear(&a);
 	return (0);
