@@ -6,14 +6,14 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:35:33 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 18:47:41 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void	chunck_sort(t_stack	**stack)
+void	chunck_sort(t_stack	**stack, bench_mark bench)
 {
 	t_stack	*b;
 	size_t	chunk_size;

@@ -39,6 +39,7 @@ SRC = \
 	src/flags/complex/complex.c\
 	src/flags/medium/medium.c\
 	src/flags/simple/simple.c
+	src/flags/flags.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

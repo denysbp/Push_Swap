@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:13:32 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 19:24:11 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,19 @@ int	main(int argc, char **argv)
 {
 	if (argc == 1)
 		return (-1);
-	t_stack *a;;
-	if (!validate_args(argv))
+	t_stack		*a;
+	bench_mark	bench;
+
+	a = NULL;
+	if (parse_flags(&a, argv, bench) < 0)
 	{
 		error();
 		return (-1);
 	}
-	a = parsing(argv);
-	if (!a)
+	if (bench.display)
 	{
-		error();
-		stack_clear(&a);
-		return (-1);
+		print_bench(bench);
 	}
-	if (is_duplicate(a))
-	{
-		error();
-		stack_clear(&a);
-		return (-1);
-	}
-	float d = disorder_rate(a);
-	if (d == 0)
-		return (0);
-	// printf("disordem: %.2f\n", d);
-	assign_index(a);
-	sort_choose(&a);
-	// size_t s = stack_size(a);
-	// printf("stack size: %lu<\n", s);
-	// t_stack *temp = a;
-	// while (s != 0)
-	// {
-	// 	printf(">%d<\n", temp ->value);
-	// 	temp = temp-> next;
-	// 	s--;
-	// }
 	stack_clear(&a);
 	return (0);
 }

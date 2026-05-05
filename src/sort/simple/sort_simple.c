@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 00:28:08 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 18:43:53 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size)
 	}
 }
 
-void	selection_min(t_stack **stack)
+void	selection_min(t_stack **stack, bench_mark bench)
 {
 	t_stack	*b;
 	size_t	min_pos;
