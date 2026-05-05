@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 00:10:38 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:35:34 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,25 @@
 # define PUSH_SWAP_H
 # include <stdbool.h>
 # include "ft_printf.h"
+
+typedef struct struct_bench
+{
+	bool	display;
+	int		sa;
+	int		sb;
+	int		pa;
+	int		pb;
+	int		ss;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		strategy;
+	int		total;
+}	bench_mark;
+
 
 typedef struct s_stack
 {
