@@ -38,7 +38,7 @@ SRC = \
 	src/flags/banch/banch.c\
 	src/flags/complex/complex.c\
 	src/flags/medium/medium.c\
-	src/flags/simple/simple.c
+	src/flags/simple/simple.c\
 	src/flags/flags.c
 OBJ = $(SRC:.c=.o)
 

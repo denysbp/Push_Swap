@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:24:11 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 19:32:23 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	bench_mark	bench;
 
 	a = NULL;
+	bench = init_bench(bench);
 	if (parse_flags(&a, argv, bench) < 0)
 	{
 		error();

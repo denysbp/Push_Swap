@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:08:39 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 19:31:26 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,23 @@ void	print_bench(bench_mark bench)
 	write(2, &bench.rrb, 4);
 	write(2, "[bench] rrr:  \n", 15);
 	write(2, &bench.rrr, 4);
+}
+
+bench_mark	init_bench(bench_mark bench)
+{
+	bench.display = false;
+	bench.pa = 0;
+	bench.pb = 0;
+	bench.ra = 0;
+	bench.rb = 0;
+	bench.rr = 0;
+	bench.rra = 0;
+	bench.rrb = 0;
+	bench.rrr = 0;
+	bench.sa = 0;
+	bench.sb = 0;
+	bench.ss = 0;
+	bench.strategy = -1;
+	bench.total = 0;
+	return (bench);
 }
