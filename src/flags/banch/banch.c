@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:31:26 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:22:06 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ size_t		strategy(bench_mark bench)
 		write(2, "adaptive\n", 10);
 		return (18);
 	}
+	return (0);
 }
 
 void	print_bench(bench_mark bench)

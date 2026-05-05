@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:09:24 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:28:11 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int		parse_flags(t_stack **stack, char **argv, bench_mark bench)
 		sort_choose(stack, bench);
 		return (-1);
 	}
+	return (0);
 }
 
 int		parsing_vaidations(t_stack **stack, char **argv)
@@ -103,4 +104,5 @@ int		parsing_vaidations(t_stack **stack, char **argv)
 	float d = disorder_rate(*stack);
 	if (d == 0)
 		return (0);
+	return (0);
 }

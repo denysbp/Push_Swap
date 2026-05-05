@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 19:34:14 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:29:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ void		stack_clear(t_stack **lst);
 void		stack_delone(t_stack *lst);
 void		sort_choose(t_stack **stack, bench_mark bench);
 void		error(void);
-void		radix_rank(t_stack **stack);
-void		stack_indexing(t_stack **stack);
 void		selection_min(t_stack **stack, bench_mark bench);
-void		push_chunks(t_stack **a, t_stack **b, size_t chunck_size);
-void		push_back_sorted(t_stack **a,t_stack **b);
+void		push_chunks(t_stack **a, t_stack **b, size_t chunck_size, bench_mark bench);
+void		push_back_sorted(t_stack **a,t_stack **b, bench_mark bench);
 void		chunck_sort(t_stack	**stack, bench_mark bench);
 void		assign_index(t_stack *stack);
 void		print_bench(bench_mark bench);
-void		adaptive_flags(t_stack **stack);
-void		complex_flags(t_stack **stack);
-void		medium_flags(t_stack **stack);
-void		simple_flag(t_stack **stack);
+void		adaptive_flags(t_stack **stack, bench_mark bench);
+void		complex_flags(t_stack **stack, bench_mark bench);
+void		medium_flags(t_stack **stack, bench_mark bench);
+void		simple_flag(t_stack **stack, bench_mark bench);
+void		sa(t_stack **a, bench_mark bench);
+void		sa(t_stack **b, bench_mark bench);
 bench_mark	init_bench(bench_mark bench);
 bool		is_duplicate(t_stack *stack);
 bool		string_overflow(char *string);
@@ -71,21 +71,22 @@ bool		is_signal(char string);
 bool		check_numbers(char *string);
 bool		validate_args(char **argv);
 int			parse_flags(t_stack **stack, char **argv, bench_mark bench);
+int			parsing_vaidations(t_stack **stack, char **argv);
 int			op_swap_stack(t_stack **name);
 int			op_rot_stack(t_stack **stack);
 int			op_rev_stack(t_stack **stack);
-int			op_swap_both(t_stack **s1, t_stack **s2);
-int			op_rot_both(t_stack **s1, t_stack **s2);
-int			op_rev_both(t_stack **s1, t_stack **s2);
+int			op_swap_both(t_stack **s1, t_stack **s2, bench_mark bench);
+int			op_rot_both(t_stack **s1, t_stack **s2, bench_mark bench);
+int			op_rev_both(t_stack **s1, t_stack **s2, bench_mark bench);
 int			push(t_stack **src, t_stack **dest);
-int			pa(t_stack **b, t_stack **a);
-int			pb(t_stack **a, t_stack **b);
-int			rra(t_stack **a);
-int			rrb(t_stack **b);
-int			ra(t_stack **a);
-int			rb(t_stack **b);
-int			stackb_cleanup(t_stack **a, t_stack **b);
-int			stack_selection(t_stack **a, t_stack **b, int mask);
+int			pa(t_stack **b, t_stack **a, bench_mark bench);
+int			pb(t_stack **a, t_stack **b, bench_mark bench);
+int			rra(t_stack **a, bench_mark bench);
+int			rrb(t_stack **b, bench_mark bench);
+int			ra(t_stack **a, bench_mark bench);
+int			rb(t_stack **b, bench_mark bench);
+int			stackb_cleanup(t_stack **a, t_stack **b, bench_mark bench);
+int			stack_selection(t_stack **a, t_stack **b, int mask, bench_mark bench);
 int			radix(t_stack **a, bench_mark bench);
 long		ft_atoi_safe(const char *str);
 size_t		stack_size(t_stack *stack);
@@ -96,7 +97,6 @@ float		disorder_rate(t_stack *stack);
 t_stack		*last_stack(t_stack *lst);
 t_stack		*new_stack(int content);
 t_stack		*find_max(t_stack *a);
-t_stack		*first_stack(t_stack *lst);
 t_stack		*parsing(char **argv);
 t_stack		*find_min(t_stack *a);
 

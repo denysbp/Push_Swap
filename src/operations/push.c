@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:30 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 00:01:19 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:09:05 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,26 @@ int	push(t_stack **src, t_stack **dest)
 	return (1);
 }
 
-int	pa(t_stack **b, t_stack **a)
+int	pa(t_stack **b, t_stack **a, bench_mark bench)
 {
 	int	i;
 
 	i = push(b, a);
 	if (!i)
 		return (0);
+	bench.pa++;
 	ft_printf("pa\n");
 	return (i);
 }
 
-int	pb(t_stack **a, t_stack **b)
+int	pb(t_stack **a, t_stack **b, bench_mark bench)
 {
 	int	i;
 
 	i = push(a, b);
 	if (!i)
 		return (0);
+	bench.pb++;
 	ft_printf("pb\n");
 	return (i);
 }

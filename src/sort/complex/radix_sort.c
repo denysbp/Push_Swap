@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:55 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 18:52:25 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:15:36 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	radix(t_stack **a, bench_mark bench)
 	{
 		n = checkpoint;
 		while (n--)
-			op_count += stack_selection(a, &b, mask);
-		op_count += stackb_cleanup(a, &b);
+			op_count += stack_selection(a, &b, mask, bench);
+		op_count += stackb_cleanup(a, &b, bench);
 		mask = mask << 1;
 	}
 	return (op_count);

@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 18:47:41 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:18:07 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	chunck_sort(t_stack	**stack, bench_mark bench)
 	chunk_size = ft_sqrt(size);
 	if (size > 100)
 		chunk_size += size / 20;
-	push_chunks(stack, &b, chunk_size);
-	push_back_sorted(stack, &b);
+	push_chunks(stack, &b, chunk_size, bench);
+	push_back_sorted(stack, &b, bench);
 }

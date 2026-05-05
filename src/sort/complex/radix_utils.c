@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 15:21:17 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/05 20:11:36 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	assign_index(t_stack *stack)
 	}
 }
 
-int	stackb_cleanup(t_stack **a, t_stack **b)
+int	stackb_cleanup(t_stack **a, t_stack **b, bench_mark bench)
 {
 	size_t	n;
 	int		op_count;
@@ -42,21 +42,21 @@ int	stackb_cleanup(t_stack **a, t_stack **b)
 	n = stack_size(*b);
 	while (n)
 	{
-		op_count += pa(b, a);
+		op_count += pa(b, a, bench);
 		n--;
 	}
 	return (op_count);
 }
 
-int	stack_selection(t_stack **a, t_stack **b, int mask)
+int	stack_selection(t_stack **a, t_stack **b, int mask, bench_mark bench)
 {
 	t_stack	*temp;
 
 	temp = (*a)->next;
 	if (!((*a)->index & mask))
-		pb(a, b);
+		pb(a, b, bench);
 	else if ((*a)->index & mask)
-		op_rot_stack(a);
+		ra(a, bench);
 	else
 		return (0);
 	*a = temp;

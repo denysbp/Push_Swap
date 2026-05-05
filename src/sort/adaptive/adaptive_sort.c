@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 18:57:43 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 19:47:10 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,9 @@ void	sort_choose(t_stack **stack, bench_mark bench)
 	if (disorder < 0.2)
 	{
 		selection_min(stack, bench);
+	}
+	if (disorder >= 5)
+	{
+		radix(stack, bench);
 	}
 }
