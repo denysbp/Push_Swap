@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 00:05:59 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 11:35:54 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void			adaptive_flags(t_stack **stack, t_bench_mark *bench);
 void			complex_flags(t_stack **stack, t_bench_mark *bench);
 void			medium_flags(t_stack **stack, t_bench_mark *bench);
 void			simple_flag(t_stack **stack, t_bench_mark *bench);
-void			sa(t_stack **a, t_bench_mark *bench);
-void			sa(t_stack **b, t_bench_mark *bench);
 bool			is_duplicate(t_stack *stack);
 bool			string_overflow(char *string);
 bool			valide_signal(char *string);
@@ -73,6 +71,8 @@ int				parse_flags(t_stack **stack, char **argv,\
 	t_bench_mark *bench, int i);
 int				parsing_vaidations(t_stack **stack, char **argv);
 int				op_swap_stack(t_stack **name);
+int				sa(t_stack **a, t_bench_mark *bench);
+int				sb(t_stack **b, t_bench_mark *bench);
 int				op_rot_stack(t_stack **stack);
 int				op_rev_stack(t_stack **stack);
 int				op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);

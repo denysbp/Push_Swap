@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:47 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 22:53:04 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 12:21:15 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
