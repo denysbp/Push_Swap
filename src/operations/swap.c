@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:39 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 11:34:49 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,26 @@ int	op_swap_stack(t_stack **stack)
 	return (1);
 }
 
-void	sa(t_stack **a, t_bench_mark *bench)
+int	sa(t_stack **a, t_bench_mark *bench)
 {
-	op_swap_stack(a);
+	int	i;
+
+	i = op_swap_stack(a);
+	if (!i)
+		return (0);
 	bench->sa++;
+	return (i);
 }
 
-void	sb(t_stack **b, t_bench_mark *bench)
+int	sb(t_stack **b, t_bench_mark *bench)
 {
-	op_swap_stack(b);
+	int	i;
+
+	i = op_swap_stack(b);
+	if (!i)
+		return (0);
 	bench->sb++;
+	return (i);
 }
 
 int	op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench)
