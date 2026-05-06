@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 16:00:49 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/06 16:15:39 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,22 @@ t_bench_mark	init_bench(t_bench_mark bench)
 	return (bench);
 }
 
+void	pf_edgecase(float ds)
+{
+	if (ds == 100.00)
+		ft_printf("100.00%%");
+}
+
 void	print_float(float ds)
 {
 	char	*unit;
 	char	*dec;
 
-	if (ds < 0 || ds > 100.00)
+	if (ds < 0 || ds >= 100.00)
+	{
+		pf_edgecase(ds);
 		return ;
-	else if (ds = 100.00)
-		ft_printf("100.00%%");
+	}
 	unit = ft_itoa((int)ds);
 	dec = ft_itoa((int)((ds - (int)ds) * 100 + 0.5));
 	if (!unit || !dec)
