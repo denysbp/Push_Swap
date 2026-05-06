@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 15:57:45 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size)
+void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size, t_bench_mark *bench)
 {
 	size_t	count;
 	t_stack	*min;
@@ -25,19 +25,19 @@ void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size)
 		if (min_pos <= size / 2)
 		{
 			while (min_pos--)
-				ra(stack);
+				ra(stack, bench);
 		}
 		else
 		{
 			count = size - min_pos;
 			while (count--)
-				rra(stack);
+				rra(stack, bench);
 		}
-		pb(stack, b);
+		pb(stack, b, bench);
 	}
 }
 
-void	selection_min(t_stack **stack)
+void	selection_min(t_stack **stack, t_bench_mark *bench)
 {
 	t_stack	*b;
 	size_t	min_pos;
@@ -46,12 +46,9 @@ void	selection_min(t_stack **stack)
 	b = NULL;
 	min_pos = 0;
 	size = 0;
-	while (*stack)
-	{
-		push_a(stack, &b, min_pos, size);
-	}
+	push_a(stack, &b, min_pos, size, bench);
 	while (b)
 	{
-		pa(&b, stack);
+		pa(&b, stack, bench);
 	}
 }
