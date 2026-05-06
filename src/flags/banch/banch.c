@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   banch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 09:37:12 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:21:37 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_bench(t_bench_mark *bench)
 	write(2, "faz a boa perdrão\n", 12);
 	write(2, "\n[bench] strategy:  ", 19);
 	strategy(bench);
-	write(2, "\n[bench] total_ops:  ", 21);
+	write(2, "[bench] total_ops:  ", 21);
 	ft_putnbr_fd(bench->total, 2);
 	write(2, "\n[bench] sa:  ", 14);
 	ft_putnbr_fd(bench->sa, 2);
