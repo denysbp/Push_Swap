@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 00:01:10 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 00:12:58 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_bench(t_bench_mark *bench)
 	print_float(bench->disorder);
 	write(2, "\n[bench] strategy:  ", 19);
 	strategy(bench);
-	write(2, "[bench] total_ops:  ", 21);
+	write(2, "\n[bench] total_ops:  ", 21);
 	ft_putnbr_fd(bench->total, 2);
 	write(2, "\n[bench] sa:  ", 14);
 	ft_putnbr_fd(bench->sa, 2);
@@ -94,8 +94,8 @@ t_bench_mark	init_bench(t_bench_mark bench)
 
 void	pf_edgecase(float ds)
 {
-	if (ds == 100.00)
-		write(2, "100.00%%", 9);
+	if (ds == 1.00)
+		write(2, "100.00%", 8);
 }
 
 void	print_float(float ds)
@@ -103,7 +103,7 @@ void	print_float(float ds)
 	char	*unit;
 	char	*dec;
 
-	if (ds < 0 || ds >= 100.00)
+	if (ds < 0 || ds >= 1)
 	{
 		pf_edgecase(ds);
 		return ;
