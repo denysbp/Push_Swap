@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 00:06:29 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 10:18:03 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,9 @@ int	stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark *bench)
 
 int	stack_selection(t_stack **a, t_stack **b, int mask, t_bench_mark *bench)
 {
-	t_stack	*temp;
-
-	temp = (*a)->next;
 	if (!((*a)->index & mask))
 		pb(a, b, bench);
-	else if ((*a)->index & mask)
-		ra(a, bench);
 	else
-		return (0);
-	*a = temp;
+		ra(a, bench);
 	return (1);
 }

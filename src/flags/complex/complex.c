@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:24:38 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 09:36:46 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

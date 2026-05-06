@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   banch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 23:21:59 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/06 09:37:12 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
