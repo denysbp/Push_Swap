@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 00:12:35 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 00:02:52 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 0;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		bench->disorder = disorder_rate(*stack);
 		assign_index(stack);
 		selection_min(stack, bench);
 		return (1);
@@ -73,6 +74,7 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 1;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		bench->disorder = disorder_rate(*stack);
 		assign_index(stack);
 		chunck_sort(stack, bench);
 		return (1);
@@ -82,6 +84,7 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 2;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		bench->disorder = disorder_rate(*stack);
 		radix(stack, bench);
 		return (1);
 	}
@@ -90,6 +93,7 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 3;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		bench->disorder = disorder_rate(*stack);
 		sort_choose(stack, bench);
 		return (1);
 	}
@@ -98,6 +102,7 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 3;
 		if (run_strategy(stack, argv, i) < 0)
 			return (-1);
+		bench->disorder = disorder_rate(*stack);
 		assign_index(stack);
 		sort_choose(stack, bench);
 		return (1);

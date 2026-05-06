@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 13:21:37 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 00:01:10 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_bench(t_bench_mark *bench)
 		+ bench->ra + bench->rb + bench->rr + bench->rra + bench->rrb
 		+ bench->rrr;
 	write(2, "[bench] disorder:  ", 19);
-	write(2, "faz a boa perdrão\n", 12);
+	print_float(bench->disorder);
 	write(2, "\n[bench] strategy:  ", 19);
 	strategy(bench);
 	write(2, "[bench] total_ops:  ", 21);
@@ -90,4 +90,40 @@ t_bench_mark	init_bench(t_bench_mark bench)
 	bench.strategy = -1;
 	bench.total = 0;
 	return (bench);
+}
+
+void	pf_edgecase(float ds)
+{
+	if (ds == 100.00)
+		write(2, "100.00%%", 9);
+}
+
+void	print_float(float ds)
+{
+	char	*unit;
+	char	*dec;
+
+	if (ds < 0 || ds >= 100.00)
+	{
+		pf_edgecase(ds);
+		return ;
+	}
+	unit = ft_itoa((int)ds);
+	dec = ft_itoa((int)((ds - (int)ds) * 100 + 0.5));
+	if (!unit || !dec)
+	{
+		if (!unit)
+			free(dec);
+		else
+			free(unit);
+		return ;
+	}
+	write(2, unit, ft_strlen(unit));
+	write(2, ".", 1);
+	if (ft_strlen(dec) == 1)
+		write(2, "0", 1);
+	write(2, dec, ft_strlen(dec));
+	write(2, "%\n", 2);
+	free(unit);
+	free(dec);
 }
