@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 11:35:54 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/06 16:03:09 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+void			print_float(float ds);
 void			stack_clear(t_stack **stack);
 void			swap(int *a, int *b);
 void			stack_add_back(t_stack **stack, t_stack *new);
