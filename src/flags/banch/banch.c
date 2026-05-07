@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   banch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 00:12:58 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:00:56 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@ void	print_float(float ds)
 		pf_edgecase(ds);
 		return ;
 	}
-	unit = ft_itoa((int)ds);
-	dec = ft_itoa((int)((ds - (int)ds) * 100 + 0.5));
+	unit = ft_itoa((int)(ds * 100 + 0.5));
+	dec = ft_itoa((int)(ds * 10000 + 0.5));
 	if (!unit || !dec)
 	{
 		if (!unit)
@@ -120,8 +120,9 @@ void	print_float(float ds)
 	}
 	write(2, unit, ft_strlen(unit));
 	write(2, ".", 1);
-	if (ft_strlen(dec) == 1)
-		write(2, "0", 1);
+//	if (ft_strlen(dec) == 1)
+//		write(2, "0", 1);
+	dec = ft_strchr(dec, dec[2]);
 	write(2, dec, ft_strlen(dec));
 	write(2, "%\n", 2);
 	free(unit);
