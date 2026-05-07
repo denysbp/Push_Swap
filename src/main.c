@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 16:05:13 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:53:18 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		error();
 		return (-1);
 	}
-	else if (parse_flags(&a, argv, &bench, 1) == 2)
+	if (parse_flags(&a, argv, &bench, 1) == 2)
 		return (-1);
 	if (bench.display)
 	{

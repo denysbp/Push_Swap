@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 16:05:45 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:39:49 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void			push_back_sorted(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			chunck_sort(t_stack	**stack, t_bench_mark *bench);
 void			assign_index(t_stack **stack);
 void			print_bench(t_bench_mark *bench);
-void			adaptive_flags(t_stack **stack, t_bench_mark *bench);
-void			complex_flags(t_stack **stack, t_bench_mark *bench);
-void			medium_flags(t_stack **stack, t_bench_mark *bench);
-void			simple_flag(t_stack **stack, t_bench_mark *bench);
+int				adaptive_flags(t_stack **a, t_bench_mark *bench, char **argv, int i);
+int				complex_flags(t_stack **a, t_bench_mark *bench, char **argv, int i);
+int				medium_flags(t_stack **a, t_bench_mark *bench, char **argv, int i);
+int				simple_flag(t_stack **a, t_bench_mark *bench, char **argv, int i);
 bool			is_duplicate(t_stack *stack);
 bool			string_overflow(char *string);
 bool			valide_signal(char *string);
@@ -104,5 +104,7 @@ t_stack			*find_max(t_stack *a);
 t_stack			*parsing(char **argv);
 t_stack			*find_min(t_stack *a);
 t_bench_mark	init_bench(t_bench_mark bench);
+char			**build_argv_view(char **argv, int start);
+int				run_strategy(t_stack **stack, char **argv, int start);
 
 #endif

@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:24:38 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 09:36:46 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:00:01 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	complex_flags(t_stack **stack, t_bench_mark *bench)
+int	complex_flags(t_stack **a, t_bench_mark *bench, char **argv, int i)
 {
-	radix(stack, bench);
+	bench->strategy = 2;
+	if (run_strategy(a, argv, i + 1) < 0)
+		return (-1);
+	if (run_strategy(a, argv, i) == 2)
+		return (2);
+	bench->disorder = disorder_rate(*a);
+	radix(a, bench);
+	return (1);
 }

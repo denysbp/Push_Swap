@@ -6,13 +6,13 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 16:11:37 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:17:01 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	**build_argv_view(char **argv, int start)
+char	**build_argv_view(char **argv, int start)
 {
 	char	**view;
 	size_t	count;
@@ -34,7 +34,7 @@ static char	**build_argv_view(char **argv, int start)
 	return (view);
 }
 
-static int	run_strategy(t_stack **stack, char **argv, int start)
+int	run_strategy(t_stack **stack, char **argv, int start)
 {
 	char	**view;
 	int		result;
@@ -62,64 +62,18 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 			return (-1);
 	}
 	else if (ft_strncmp("--simple", argv[i], 10) == 0)
-	{
-		bench->strategy = 0;
-		if (run_strategy(stack, argv, i + 1) < 0)
-			return (-1);
-		else if (run_strategy(stack, argv, i) == 2)
-			return (2);
-		assign_index(stack);
-		bench->disorder = disorder_rate(*stack);
-		selection_min(stack, bench);
-		return (1);
-	}
+		return (simple_flag(stack, bench, argv, i));
 	else if (ft_strncmp("--medium", argv[i], 10) == 0)
-	{
-		bench->strategy = 1;
-		if (run_strategy(stack, argv, i + 1) < 0)
-			return (-1);
-		else if (run_strategy(stack, argv, i) == 2)
-			return (2);
-		assign_index(stack);
-		bench->disorder = disorder_rate(*stack);
-		chunck_sort(stack, bench);
-		return (1);
-	}
+		return (medium_flags(stack, bench, argv, i));
 	else if (ft_strncmp("--complex", argv[i], 10) == 0)
-	{
-		bench->strategy = 2;
-		if (run_strategy(stack, argv, i + 1) < 0)
-			return (-1);
-		else if (run_strategy(stack, argv, i) == 2)
-			return (2);
-		bench->disorder = disorder_rate(*stack);
-		radix(stack, bench);
-		return (1);
-	}
+		return (complex_flags(stack, bench, argv, i));
 	else if (ft_strncmp("--adaptive", argv[i], 11) == 0)
-	{
-		bench->strategy = 3;
-		if (run_strategy(stack, argv, i + 1) < 0)
-			return (-1);
-		else if (run_strategy(stack, argv, i) == 2)
-			return (2);
-		bench->disorder = disorder_rate(*stack);
-		sort_choose(stack, bench);
-		return (1);
-	}
+		return (adaptive_flags(stack, bench, argv, i));
 	else
 	{
-		bench->strategy = 3;
-		if (run_strategy(stack, argv, i) < 0)
-			return (-1);
-		else if (run_strategy(stack, argv, i) == 2)
-			return (2);
-		bench->disorder = disorder_rate(*stack);
-		assign_index(stack);
-		sort_choose(stack, bench);
-		return (1);
+		return (adaptive_flags(stack, bench, argv, i));
 	}
-	return (0);
+	return (1);
 }
 
 int		parsing_vaidations(t_stack **stack, char **argv)
