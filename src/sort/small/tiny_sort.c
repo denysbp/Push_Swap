@@ -6,13 +6,29 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/07 19:43:15 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 19:46:43 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	sort_three(t_stack **a, t_bench_mark *bench)
+{
+	t_stack	*highest;
+	int		op_count;
 
+	if (!a || !bench)
+		return (0);
+	op_count = 0;
+	highest = find_max(*a);
+	if (*a == highest)
+		op_count += ra(a, bench);
+	else if ((*a)->next == highest)
+		op_count += rra(a, bench);
+	if ((*a)->index > (*a)->next->index)
+		op_count += sa(a, bench);
+	return (op_count);
+}
 
 int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
