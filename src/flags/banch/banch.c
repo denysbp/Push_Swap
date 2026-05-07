@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 14:10:19 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 14:19:39 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,11 @@ void	pf_edgecase(float ds)
 	if (ds == 1.00)
 		write(2, "100.00%", 8);
 }
-
+void	free_char(char * unit, char *dec)
+{
+	free(unit);
+	free(dec);
+}
 void	print_float(float ds)
 {
 	char	*unit;
@@ -123,10 +127,7 @@ void	print_float(float ds)
 	}
 	write(2, unit, ft_strlen(unit));
 	write(2, ".", 1);
-	if (ft_strlen(dec) == 1)
-		write(2, "0", 1);
 	write(2, dec, ft_strlen(dec));
-	write(2, "%\n", 2);
-	free(unit);
-	free(dec);
+	write(2, "%", 2);
+	free_char(unit, dec);
 }
