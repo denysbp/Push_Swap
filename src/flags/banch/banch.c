@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 00:12:58 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:46:27 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ size_t		strategy(t_bench_mark *bench)
 {
 	if (bench->strategy == 0)
 	{
-		write(2, "simple O(n²)\n", 13);
+		write(2, "simple O(n²)", 13);
 		return (13);
 	}
 	else if (bench->strategy == 1)
 	{
-		write(2, "medium O(n√n)\n", 15);
+		write(2, "medium O(n√n)", 15);
 		return (15);
 	}
 	else if (bench->strategy == 2)
 	{
-		write(2, "complex O(n log n)\n", 18);
+		write(2, "complex O(n log n)", 18);
 		return (18);
 	}
 	else if (bench->strategy == 3)
 	{
-		write(2, "adaptive\n", 10);
+		write(2, "adaptive", 9);
 		return (18);
 	}
 	return (0);
@@ -89,6 +89,7 @@ t_bench_mark	init_bench(t_bench_mark bench)
 	bench.ss = 0;
 	bench.strategy = -1;
 	bench.total = 0;
+	bench.disorder = 0;
 	return (bench);
 }
 
@@ -102,14 +103,16 @@ void	print_float(float ds)
 {
 	char	*unit;
 	char	*dec;
+	int		total;
 
 	if (ds < 0 || ds >= 1)
 	{
 		pf_edgecase(ds);
 		return ;
 	}
-	unit = ft_itoa((int)ds);
-	dec = ft_itoa((int)((ds - (int)ds) * 100 + 0.5));
+	total = (int)((ds - (int)ds) * 10000 + 0.5);
+	unit = ft_itoa(total / 100);
+	dec = ft_itoa(total % 100);
 	if (!unit || !dec)
 	{
 		if (!unit)
@@ -123,7 +126,7 @@ void	print_float(float ds)
 	if (ft_strlen(dec) == 1)
 		write(2, "0", 1);
 	write(2, dec, ft_strlen(dec));
-	write(2, "%\n", 2);
+	write(2, "%", 2);
 	free(unit);
 	free(dec);
 }
