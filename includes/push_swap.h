@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:53:22 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:45:19 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,51 +50,52 @@ void			free_split(char **split);
 void			stack_add_front(t_stack **stack, t_stack *new);
 void			stack_clear(t_stack **lst);
 void			stack_delone(t_stack *lst);
-void			sort_choose(t_stack **stack, t_bench_mark *bench);
+void			sort_choose(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			error(void);
-void			selection_min(t_stack **stack, t_bench_mark *bench);
+void			selection_min(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			push_chunks(t_stack **a, t_stack **b, size_t chunck_size,\
 	t_bench_mark *bench);
 void			push_back_sorted(t_stack **a, t_stack **b, t_bench_mark *bench);
-void			chunck_sort(t_stack	**stack, t_bench_mark *bench);
+void			chunck_sort(t_stack	**stack, t_stack **b, t_bench_mark *bench);
+void			radix(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			assign_index(t_stack **stack);
 void			print_bench(t_bench_mark *bench);
-void			adaptive_flags(t_stack **stack, t_bench_mark *bench);
-void			complex_flags(t_stack **stack, t_bench_mark *bench);
-void			medium_flags(t_stack **stack, t_bench_mark *bench);
-void			simple_flag(t_stack **stack, t_bench_mark *bench);
+void			adaptive_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			complex_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			medium_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			simple_flag(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			sort_three(t_stack **a, t_bench_mark *bench);
+void			sort_four(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			sort_five(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench);
 bool			is_duplicate(t_stack *stack);
 bool			string_overflow(char *string);
 bool			valide_signal(char *string);
 bool			is_signal(char string);
 bool			check_numbers(char *string);
 bool			validate_args(char **argv);
-int				parse_flags(t_stack **stack, char **argv,\
-	t_bench_mark *bench, int i);
+int				parse_flags(t_stack **a, t_stack **b, char **argv,\
+	 t_bench_mark *bench, int i);
 int				parsing_vaidations(t_stack **stack, char **argv);
-int				sort_three(t_stack **a, t_bench_mark *bench);
-int				sort_four(t_stack **a, t_stack **b, t_bench_mark *bench);
-int				sort_five(t_stack **a, t_stack **b, t_bench_mark *bench);
-int				tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench);
-int				op_swap_stack(t_stack **name);
-int				sa(t_stack **a, t_bench_mark *bench);
-int				sb(t_stack **b, t_bench_mark *bench);
-int				op_rot_stack(t_stack **stack);
-int				op_rev_stack(t_stack **stack);
-int				op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
-int				op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
-int				op_rev_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
-int				push(t_stack **src, t_stack **dest);
-int				pa(t_stack **b, t_stack **a, t_bench_mark *bench);
-int				pb(t_stack **a, t_stack **b, t_bench_mark *bench);
-int				rra(t_stack **a, t_bench_mark *bench);
-int				rrb(t_stack **b, t_bench_mark *bench);
-int				ra(t_stack **a, t_bench_mark *bench);
-int				rb(t_stack **b, t_bench_mark *bench);
-int				stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark *bench);
-int				stack_selection(t_stack **a, t_stack **b, int mask,\
+void			op_swap_stack(t_stack **name);
+void			sa(t_stack **a, t_bench_mark *bench);
+void			sb(t_stack **b, t_bench_mark *bench);
+void			op_rot_stack(t_stack **stack);
+void			op_rev_stack(t_stack **stack);
+void			op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
+void			rr(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			rrr(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			push(t_stack **src, t_stack **dest);
+void			pa(t_stack **b, t_stack **a, t_bench_mark *bench);
+void			pb(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			rra(t_stack **a, t_bench_mark *bench);
+void			rrb(t_stack **b, t_bench_mark *bench);
+void			ra(t_stack **a, t_bench_mark *bench);
+void			rb(t_stack **b, t_bench_mark *bench);
+void			stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark *bench);
+void			stack_selection(t_stack **a, t_stack **b, int mask,\
 	t_bench_mark *bench);
-int				radix(t_stack **a, t_bench_mark *bench);
+
 long			ft_atoi_safe(const char *str);
 size_t			is_above_median(t_stack **stack, t_stack *node);
 size_t			stack_size(t_stack *stack);

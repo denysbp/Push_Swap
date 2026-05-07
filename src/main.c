@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:28:00 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (-1);
 	t_stack		*a;
+	t_stack		*b;
 	t_bench_mark	bench;
 
 	a = NULL;
+	b = NULL;
 	bench = init_bench(bench);
 	if (ft_strncmp(argv[1], "--bench", 9) == 0)
 		bench.display = true;
-	if (parse_flags(&a, argv, &bench, 1) < 0)
+	if (parse_flags(&a, &b, argv, &bench, 1) < 0)
 	{
 		error();
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:10:54 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ void	push_a(t_stack **stack, t_stack **b, size_t min_pos, size_t size, t_bench_m
 	}
 }
 
-void	selection_min(t_stack **stack, t_bench_mark *bench)
+void	selection_min(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
-	t_stack	*b;
 	size_t	min_pos;
 	size_t	size;
 
-	b = NULL;
 	min_pos = 0;
 	size = 0;
-	push_a(stack, &b, min_pos, size, bench);
-	while (b)
+	push_a(a, b, min_pos, size, bench);
+	while (*b)
 	{
-		pa(&b, stack, bench);
+		pa(b, a, bench);
 	}
 }

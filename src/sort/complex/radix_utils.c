@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:59 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:51:19 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,22 @@ void	assign_index(t_stack **stack)
 	}
 }
 
-int	stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark *bench)
+void	stackb_cleanup(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	size_t	n;
-	int		op_count;
 
 	n = stack_size(*b);
 	while (n)
 	{
-		op_count += pa(b, a, bench);
+		pa(b, a, bench);
 		n--;
 	}
-	return (op_count);
 }
 
-int	stack_selection(t_stack **a, t_stack **b, int mask, t_bench_mark *bench)
+void	stack_selection(t_stack **a, t_stack **b, int mask, t_bench_mark *bench)
 {
 	if (!((*a)->index & mask))
 		pb(a, b, bench);
 	else
 		ra(a, bench);
-	return (1);
 }

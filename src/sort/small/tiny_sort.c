@@ -6,83 +6,71 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/07 19:59:10 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:05:00 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sort_three(t_stack **a, t_bench_mark *bench)
+void	sort_three(t_stack **a, t_bench_mark *bench)
 {
 	t_stack	*highest;
-	int		op_count;
 
 	if (!a || !bench)
-		return (0);
-	op_count = 0;
+		return ;
 	highest = find_max(*a);
 	if (*a == highest)
-		op_count += ra(a, bench);
+		ra(a, bench);
 	else if ((*a)->next == highest)
-		op_count += rra(a, bench);
+		rra(a, bench);
 	if ((*a)->index > (*a)->next->index)
-		op_count += sa(a, bench);
-	return (op_count);
+		sa(a, bench);
 }
 
-int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
+void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	
-	int		op_count;
 	t_stack	*min;
 	
-	op_count = 0;
 	assign_index(a);
 	min = find_min(*a);
 	if (is_above_median(a, min))
-	op_count += pa(b, a, bench);
-	return (op_count);
+	pa(b, a, bench);
 }
 
-int	sort_five(t_stack **a, t_stack **b, t_bench_mark *bench)
+void	sort_five(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
-	int		op_count;
 	t_stack	*min;
 
-	op_count = 0;
 	assign_index(a);
 	min = find_min(*a);
 	if (is_above_median(a, min))
 	{
 		while (min != *a)
-			op_count += ra(a, bench);
+			ra(a, bench);
 	}
 	else
 	{
 		while (min != *a)
-			op_count += rra(a, bench);
+			rra(a, bench);
 	}
-	op_count += pb(a, b, bench);
-	op_count += sort_four(a, b, bench);
-	return (op_count);
+	pb(a, b, bench);
+	sort_four(a, b, bench);
 }
 
-int	tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench)
+void	tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	size_t	size;
-	int		op_count;
 
 	size = stack_size(*a);
-	op_count = 0;
 	if (size == 1)
-		return (0);
+		return ;
 	else if (size == 2)
-		op_count += sa(a, bench);
+		sa(a, bench);
 	else if (size == 3)
-		op_count += sort_three(a, bench);
+		sort_three(a, bench);
 	else if (size == 4)
-		op_count += sort_four(a, b, bench);
+		sort_four(a, b, bench);
 	else if (size == 5)
-		op_count += sort_five(a, b, bench);
-	return (op_count);
+		sort_five(a, b, bench);
 }
