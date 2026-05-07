@@ -6,11 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:27:19 by deferrei          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/05/07 13:46:27 by deferrei         ###   ########.fr       */
-=======
-/*   Updated: 2026/05/07 13:00:56 by pecoelho         ###   ########.fr       */
->>>>>>> 2d41ff8c85ed96b4e435a8eea1500c05040c98b1
+/*   Updated: 2026/05/07 14:15:17 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +123,6 @@ void	print_float(float ds)
 	}
 	write(2, unit, ft_strlen(unit));
 	write(2, ".", 1);
-//	if (ft_strlen(dec) == 1)
-//		write(2, "0", 1);
-	dec = ft_strchr(dec, dec[2]);
 	write(2, dec, ft_strlen(dec));
 	write(2, "%", 2);
 	free(unit);
