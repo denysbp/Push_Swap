@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:25:38 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	adaptive_flags(t_stack **stack, t_bench_mark *bench)
 {

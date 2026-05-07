@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 00:11:06 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static char	**build_argv_view(char **argv, int start)
 {

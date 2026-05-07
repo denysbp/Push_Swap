@@ -1,32 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_sort.c                                    :+:      :+:    :+:   */
+/*   turk_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
+/*   Created: 2026/05/06 11:12:48 by pecoelho          #+#    #+#             */
 /*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_choose(t_stack **stack, t_bench_mark *bench)
+int	find_cost(t_stack **stack, int index)
 {
-	float	disorder;
+	t_stack	*temp;
+	int		position;
+	int		costt;
+	int		costb;
 
-	disorder = disorder_rate(*stack);
-	if (disorder < 0.2)
+	temp = *stack;
+	position = 0;
+	while (temp && temp->index < index)
 	{
-		selection_min(stack, bench);
+		position++;
+		temp = temp->next;
 	}
-	else if (disorder <= 0.2 || disorder < 0.5)
+	return (position);
+}
+
+int	precise_b_insertion(t_stack **a, t_stack **b, t_bench_mark *bench)
+{
+	int	count_op;
+	int	size;
+	int	pos;
+
+	pos = find_cost(a, (*b)->index);
+	size = stack_size(*a);
+	count_op = 0;
+	if (pos <= size - pos)
 	{
-		chunck_sort(stack, bench);
+		while (pos-- > 0)
+			count_op += ra(a, bench);
 	}
-	else if (disorder >= 0.5)
+	else
 	{
-		radix(stack, bench);
+		pos = size - pos;
+		while (pos-- > 0)
+			count_op += rra(a, bench);
 	}
+	count_op +=pa(b, a, bench);
+	return (count_op);
 }

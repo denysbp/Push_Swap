@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 00:08:38 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 
 void	chunck_sort(t_stack	**stack, t_bench_mark *bench)
