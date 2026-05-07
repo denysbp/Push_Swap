@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 23:58:53 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:23:48 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,12 @@ bool			valide_signal(char *string);
 bool			is_signal(char string);
 bool			check_numbers(char *string);
 bool			validate_args(char **argv);
+int				is_above_median(t_stack **stack, t_stack *node);
 int				parse_flags(t_stack **stack, char **argv,\
 	t_bench_mark *bench, int i);
 int				parsing_vaidations(t_stack **stack, char **argv);
+int				sort_three(t_stack **a, t_bench_mark *bench);
+int				sort_four(t_stack **a, t_stack **b, t_bench_mark *bench);
 int				op_swap_stack(t_stack **name);
 int				sa(t_stack **a, t_bench_mark *bench);
 int				sb(t_stack **b, t_bench_mark *bench);

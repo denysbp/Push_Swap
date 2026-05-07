@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:14:17 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 23:47:15 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:22:22 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,22 @@ int	sort_three(t_stack **a, t_bench_mark *bench)
 int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	int		op_count;
+	t_stack	*min;
 
 	assign_index(a);
-	op_count = pb(a, b, bench);
-	op_count += sort_three(a, bench);
-	if ((*b)->index == 2)
+	min = find_min(a);
+	if (is_above_median(a, min))
 	{
-		op_count += rra(a, bench);
-		op_count += pa(b, a, bench);
-		op_count += ra(a, bench);
-		op_count += ra(a, bench);
+		while (min != *a)
+			op_count += ra(a, bench);
 	}
 	else
 	{
-		op_count += pa(b, a, bench);
-		if ((*a)->index == 1)
-			op_count += sa(a, bench);
-		else if((*a)->index == 3)
-			op_count += 4;
+		while (min != *a)
+			op_count += rra(a, bench);
 	}
+	op_count += pb(a, b, bench);
+	op_count += sort_three(a, bench);
+	op_count += pa(b, a, bench);
 	return (op_count);
 }
