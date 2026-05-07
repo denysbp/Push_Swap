@@ -22,8 +22,7 @@ SRC = \
 	src/operations/push.c \
 	src/operations/rotate.c \
 	src/operations/reverse.c \
-	src/sort/small/sort_three.c \
-	src/sort/small/sort_five.c \
+	src/sort/small/tiny_sort.c \
 	src/sort/adaptive/adaptive_sort.c \
 	src/sort/adaptive/disorder.c \
 	src/sort/complex/radix_sort.c \
