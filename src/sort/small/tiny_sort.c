@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 19:14:17 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:26:34 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/05/07 15:49:29 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/05/07 15:52:31 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 	int		op_count;
 	t_stack	*min;
 
+	op_count = 0;
 	assign_index(a);
 	min = find_min(*a);
 	if (is_above_median(a, min))
@@ -50,5 +51,48 @@ int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 	op_count += pb(a, b, bench);
 	op_count += sort_three(a, bench);
 	op_count += pa(b, a, bench);
+	return (op_count);
+}
+
+int	sort_five(t_stack **a, t_stack **b, t_bench_mark *bench)
+{
+	int		op_count;
+	t_stack	*min;
+
+	op_count = 0;
+	assign_index(a);
+	min = find_min(a);
+	if (is_above_median(a, min))
+	{
+		while (min != *a)
+			op_count += ra(a, bench);
+	}
+	else
+	{
+		while (min != *a)
+			op_count += rra(a, bench);
+	}
+	op_count += pb(a, b, bench);
+	op_count += sort_four(a, b, bench);
+	return (op_count);
+}
+
+int	tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench)
+{
+	size_t	size;
+	int		op_count;
+
+	size = stack_size(*a);
+	op_count = 0;
+	if (size == 1)
+		return (0);
+	else if (size == 2)
+		op_count += sa(a, bench);
+	else if (size == 3)
+		op_count += sort_three(a, bench);
+	else if (size == 4)
+		op_count += sort_four(a, b, bench);
+	else if (size == 5)
+		op_count += sort_five(a, b, bench);
 	return (op_count);
 }

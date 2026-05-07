@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:28:38 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:53:22 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int				parse_flags(t_stack **stack, char **argv,\
 int				parsing_vaidations(t_stack **stack, char **argv);
 int				sort_three(t_stack **a, t_bench_mark *bench);
 int				sort_four(t_stack **a, t_stack **b, t_bench_mark *bench);
+int				sort_five(t_stack **a, t_stack **b, t_bench_mark *bench);
+int				tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench);
 int				op_swap_stack(t_stack **name);
 int				sa(t_stack **a, t_bench_mark *bench);
 int				sb(t_stack **b, t_bench_mark *bench);
