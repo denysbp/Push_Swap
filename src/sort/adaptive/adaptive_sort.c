@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:09:44 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:54:34 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sort_choose(t_stack **a, t_stack **b, t_bench_mark *bench)
 	size_t	size;
 
 	size = stack_size(*a);
+	if (size == 1)
+		return ;
 	disorder = disorder_rate(*a);
 	if (size > 1 && size <= 5)
 	{
