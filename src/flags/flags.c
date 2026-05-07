@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 00:11:06 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:11:37 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	run_strategy(t_stack **stack, char **argv, int start)
 	free(view);
 	if (result < 0)
 		return (-1);
+	else if (result == 2)
+		return (2);
 	return (0);
 }
 
@@ -64,6 +66,8 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 0;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		else if (run_strategy(stack, argv, i) == 2)
+			return (2);
 		assign_index(stack);
 		bench->disorder = disorder_rate(*stack);
 		selection_min(stack, bench);
@@ -74,6 +78,8 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 1;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		else if (run_strategy(stack, argv, i) == 2)
+			return (2);
 		assign_index(stack);
 		bench->disorder = disorder_rate(*stack);
 		chunck_sort(stack, bench);
@@ -84,6 +90,8 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 2;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		else if (run_strategy(stack, argv, i) == 2)
+			return (2);
 		bench->disorder = disorder_rate(*stack);
 		radix(stack, bench);
 		return (1);
@@ -93,6 +101,8 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 3;
 		if (run_strategy(stack, argv, i + 1) < 0)
 			return (-1);
+		else if (run_strategy(stack, argv, i) == 2)
+			return (2);
 		bench->disorder = disorder_rate(*stack);
 		sort_choose(stack, bench);
 		return (1);
@@ -102,6 +112,8 @@ int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
 		bench->strategy = 3;
 		if (run_strategy(stack, argv, i) < 0)
 			return (-1);
+		else if (run_strategy(stack, argv, i) == 2)
+			return (2);
 		bench->disorder = disorder_rate(*stack);
 		assign_index(stack);
 		sort_choose(stack, bench);
@@ -129,6 +141,6 @@ int		parsing_vaidations(t_stack **stack, char **argv)
 	}
 	float d = disorder_rate(*stack);
 	if (d == 0)
-		return (0);
+		return (2);
 	return (0);
 }

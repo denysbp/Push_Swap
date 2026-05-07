@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 23:58:53 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:05:45 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				parsing_vaidations(t_stack **stack, char **argv);
 int				op_swap_stack(t_stack **name);
 int				sa(t_stack **a, t_bench_mark *bench);
 int				sb(t_stack **b, t_bench_mark *bench);
+int				only_null(char **argv);
 int				op_rot_stack(t_stack **stack);
 int				op_rev_stack(t_stack **stack);
 int				op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
