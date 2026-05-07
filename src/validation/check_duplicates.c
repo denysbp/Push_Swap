@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_duplicates.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:26 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/03 11:03:26 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 bool	is_duplicate(t_stack *stack)
 {

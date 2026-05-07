@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/05 23:07:47 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:50:45 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	op_rot_stack(t_stack **stack)
+void	op_rot_stack(t_stack **stack)
 {
 	t_stack	*cur;
 	int		temp;
 	int		itemp;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return (0);
+		return ;
 	cur = *stack;
 	while (cur->next)
 	{
@@ -31,48 +31,29 @@ int	op_rot_stack(t_stack **stack)
 		cur->next->index = itemp;
 		cur = cur->next;
 	}
-	return (1);
 }
 
-int	ra(t_stack **a, t_bench_mark *bench)
+void	ra(t_stack **a, t_bench_mark *bench)
 {
-	int	i;
-
-	i = op_rot_stack(a);
-	if (!i)
-		return (0);
+	op_rot_stack(a);
 	bench->ra += 1;
 	ft_printf("ra\n");
-	return (i);
 }
 
-int	rb(t_stack **b, t_bench_mark *bench)
+void	rb(t_stack **b, t_bench_mark *bench)
 {
-	int	i;
-
-	i = op_rot_stack(b);
-	if (!i)
-		return (0);
+	op_rot_stack(b);
 	bench->rb += 1;
 	ft_printf("rb\n");
-	return (i);
 }
 
-int	op_rot_both(t_stack **s1, t_stack **s2, t_bench_mark *bench)
+void	rr(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
-	int	check;
-	int	check1;
-
-	if (!s1 || !s2 || !*s1 || !*s2)
-		return (0);
-	check = op_rot_stack(s1);
-	check1 = op_rot_stack(s2);
+	if (!a || !b || !*a || !*b)
+		return ;
+	ra(a, bench);
+	rb(b, bench);
 	bench->ra--;
 	bench->rb--;
-	if (!check || !check1)
-		return (0);
 	bench->rr++;
-	if (!check)
-		return (0);
-	return (1);
 }

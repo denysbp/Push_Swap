@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:30:53 by deferrei          #+#    #+#             */
-/*   Updated: 2026/04/29 19:11:45 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	swap(int *a, int *b)
 {

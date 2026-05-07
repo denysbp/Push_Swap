@@ -6,11 +6,11 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 16:53:18 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 00:50:20 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (-1);
 	t_stack		*a;
+	t_stack		*b;
 	t_bench_mark	bench;
 
 	if (only_null(argv) == -1)
@@ -26,15 +27,16 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	a = NULL;
+	b = NULL;
 	bench = init_bench(bench);
 	if (ft_strncmp(argv[1], "--bench", 9) == 0)
 		bench.display = true;
-	if (parse_flags(&a, argv, &bench, 1) < 0)
+	if (parse_flags(&a, &b, argv, &bench, 1) < 0)
 	{
 		error();
 		return (-1);
 	}
-	if (parse_flags(&a, argv, &bench, 1) == 2)
+	if (parse_flags(&a, &b, argv, &bench, 1) == 2)
 		return (-1);
 	if (bench.display)
 	{

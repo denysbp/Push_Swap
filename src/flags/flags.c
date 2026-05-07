@@ -6,11 +6,11 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:17:01 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 00:39:37 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 char	**build_argv_view(char **argv, int start)
 {
@@ -51,27 +51,63 @@ int	run_strategy(t_stack **stack, char **argv, int start)
 	return (0);
 }
 
-int		parse_flags(t_stack **stack, char **argv, t_bench_mark *bench, int i)
+int		parse_flags(t_stack **a, t_stack **b, char **argv, t_bench_mark *bench, int i)
 {
 	if (!argv[i])
 		return (-1);
 	if (ft_strncmp("--bench", argv[i], 9) == 0)
 	{
 		bench->display = true;
-		if (parse_flags(stack, argv, bench, i + 1) < 0)
+		if (parse_flags(a, b, argv, bench, i + 1) < 0)
 			return (-1);
 	}
 	else if (ft_strncmp("--simple", argv[i], 10) == 0)
-		return (simple_flag(stack, bench, argv, i));
+	{
+		bench->strategy = 0;
+		if (run_strategy(a, argv, i + 1) < 0)
+			return (-1);
+		assign_index(a);
+		bench->disorder = disorder_rate(*a);
+		selection_min(a, b, bench);
+		return (1);
+	}
 	else if (ft_strncmp("--medium", argv[i], 10) == 0)
-		return (medium_flags(stack, bench, argv, i));
+	{
+		bench->strategy = 1;
+		if (run_strategy(a, argv, i + 1) < 0)
+			return (-1);
+		assign_index(a);
+		bench->disorder = disorder_rate(*a);
+		chunck_sort(a, b, bench);
+		return (1);
+	}
 	else if (ft_strncmp("--complex", argv[i], 10) == 0)
-		return (complex_flags(stack, bench, argv, i));
+	{
+		bench->strategy = 2;
+		if (run_strategy(a, argv, i + 1) < 0)
+			return (-1);
+		bench->disorder = disorder_rate(*a);
+		radix(a, b, bench);
+		return (1);
+	}
 	else if (ft_strncmp("--adaptive", argv[i], 11) == 0)
-		return (adaptive_flags(stack, bench, argv, i));
+	{
+		bench->strategy = 3;
+		if (run_strategy(a, argv, i + 1) < 0)
+			return (-1);
+		bench->disorder = disorder_rate(*a);
+		sort_choose(a, b, bench);
+		return (1);
+	}
 	else
 	{
-		return (adaptive_flags(stack, bench, argv, i));
+		bench->strategy = 3;
+		if (run_strategy(a, argv, i) < 0)
+			return (-1);
+		bench->disorder = disorder_rate(*a);
+		assign_index(a);
+		sort_choose(a, b, bench);
+		return (1);
 	}
 	return (1);
 }

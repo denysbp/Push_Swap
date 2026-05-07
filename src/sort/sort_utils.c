@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/04 22:18:03 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_stack	*find_max(t_stack *a)
 {
@@ -57,4 +57,9 @@ size_t	get_position(t_stack *stack, t_stack *target)
 		pos++;
 	}
 	return (0);
+}
+
+size_t	is_above_median(t_stack **stack, t_stack *node)
+{
+	return (node->index < (int)(stack_size(*stack) / 2));
 }

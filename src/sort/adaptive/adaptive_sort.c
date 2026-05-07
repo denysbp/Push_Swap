@@ -3,30 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/06 13:14:02 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:54:34 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	sort_choose(t_stack **stack, t_bench_mark *bench)
+void	sort_choose(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	float	disorder;
+	size_t	size;
 
-	disorder = disorder_rate(*stack);
+	size = stack_size(*a);
+	if (size == 1)
+		return ;
+	disorder = disorder_rate(*a);
+	if (size > 1 && size <= 5)
+	{
+		tiny_sort(a, b, bench);
+	}
 	if (disorder < 0.2)
 	{
-		selection_min(stack, bench);
+		selection_min(a, b, bench);
 	}
 	else if (disorder <= 0.2 || disorder < 0.5)
 	{
-		chunck_sort(stack, bench);
+		chunck_sort(a, b, bench);
 	}
 	else if (disorder >= 0.5)
 	{
-		radix(stack, bench);
+		radix(a, b, bench);
 	}
 }
