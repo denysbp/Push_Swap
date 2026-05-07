@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:14:17 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:22:22 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:26:34 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 	t_stack	*min;
 
 	assign_index(a);
-	min = find_min(a);
+	min = find_min(*a);
 	if (is_above_median(a, min))
 	{
 		while (min != *a)

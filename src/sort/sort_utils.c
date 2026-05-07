@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:09:08 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:29:23 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ size_t	get_position(t_stack *stack, t_stack *target)
 	return (0);
 }
 
-int	is_above_median(t_stack **stack, t_stack *node)
+size_t	is_above_median(t_stack **stack, t_stack *node)
 {
-	return (node->index < stack_size(stack) / 2);
+	return (node->index < (int)(stack_size(*stack) / 2));
 }

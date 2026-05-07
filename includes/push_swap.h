@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 15:23:48 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:28:38 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ bool			valide_signal(char *string);
 bool			is_signal(char string);
 bool			check_numbers(char *string);
 bool			validate_args(char **argv);
-int				is_above_median(t_stack **stack, t_stack *node);
 int				parse_flags(t_stack **stack, char **argv,\
 	t_bench_mark *bench, int i);
 int				parsing_vaidations(t_stack **stack, char **argv);
@@ -95,6 +94,7 @@ int				stack_selection(t_stack **a, t_stack **b, int mask,\
 	t_bench_mark *bench);
 int				radix(t_stack **a, t_bench_mark *bench);
 long			ft_atoi_safe(const char *str);
+size_t			is_above_median(t_stack **stack, t_stack *node);
 size_t			stack_size(t_stack *stack);
 size_t			get_position(t_stack *stack, t_stack *target);
 size_t			ft_sqrt(size_t chuncks);
