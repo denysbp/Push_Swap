@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/08 14:06:54 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 20:16:06 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 		while (min != *a)
 		{
 			ra(a, bench);
+			min = find_min(*a);
 		}
 	}
 	else
@@ -45,6 +46,7 @@ void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 		while (min != *a)
 		{
 			rra(a, bench);
+			min = find_min(*a);
 		}
 	}
 	pb(a, b, bench);
