@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:47 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../includes/push_swap.h"
 
 size_t	ft_sqrt(size_t chuncks)
 {
@@ -19,13 +17,12 @@ size_t	ft_sqrt(size_t chuncks)
 
 	i = 0;
 	while (i * i < chuncks)
-	{
 		i++;
-	}
 	return (i);
 }
 
-void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, t_bench_mark *bench)
+void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size,
+	t_bench_mark *bench)
 {
 	size_t	i;
 	size_t	limit;
@@ -36,13 +33,13 @@ void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, t_bench_mark *ben
 	{
 		if ((size_t)(*a)->index < i)
 		{
-			pb(a,b, bench);
+			pb(a, b, bench);
 			rb(b, bench);
 			i++;
 		}
 		else if ((size_t)(*a)->index < limit)
 		{
-			pb(a,b, bench);
+			pb(a, b, bench);
 			i++;
 		}
 		else
@@ -52,7 +49,7 @@ void	push_chunks(t_stack **a, t_stack **b, size_t chunck_size, t_bench_mark *ben
 	}
 }
 
-void	push_back_sorted(t_stack **a,t_stack **b, t_bench_mark *bench)
+void	push_back_sorted(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	size_t	max_pos;
 	size_t	size;
@@ -66,9 +63,7 @@ void	push_back_sorted(t_stack **a,t_stack **b, t_bench_mark *bench)
 		if (max_pos <= size / 2)
 		{
 			while (max_pos--)
-			{
 				rb(b, bench);
-			}
 		}
 		else
 		{
@@ -76,6 +71,6 @@ void	push_back_sorted(t_stack **a,t_stack **b, t_bench_mark *bench)
 			while (count--)
 				rrb(b, bench);
 		}
-		pa(b,a, bench);
+		pa(b, a, bench);
 	}
 }

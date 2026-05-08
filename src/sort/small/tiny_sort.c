@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/07 22:07:56 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,22 @@ void	sort_three(t_stack **a, t_bench_mark *bench)
 
 void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
-	
 	t_stack	*min;
-	
+
 	assign_index(a);
 	min = find_min(*a);
 	if (is_above_median(a, min))
+	{
+		while (min != *a)
+			ra(a, bench);
+	}
+	else
+	{
+		while (min != *a)
+			rra(a, bench);
+	}
+	pb(a, b, bench);
+	sort_three(a, bench);
 	pa(b, a, bench);
 }
 

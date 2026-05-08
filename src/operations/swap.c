@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:39 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:49:59 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 01:14:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	sa(t_stack **a, t_bench_mark *bench)
 {
 	op_swap_stack(a);
 	bench->sa++;
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack **b, t_bench_mark *bench)
 {
 	op_swap_stack(b);
 	bench->sb++;
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack **a, t_stack **b, t_bench_mark *bench)
@@ -47,4 +49,5 @@ void	ss(t_stack **a, t_stack **b, t_bench_mark *bench)
 	bench->sa--;
 	bench->sb--;
 	bench->ss++;
+	ft_printf("ss\n");
 }

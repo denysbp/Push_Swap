@@ -34,11 +34,14 @@ SRC = \
 	src/sort/sort_utils.c \
 	src/output/print_ops.c\
 	src/flags/flags.c\
+	src/flags/flags_utils.c\
 	src/flags/adaptive/adaptive.c\
 	src/flags/banch/banch.c\
+	src/flags/banch/bench_utils.c\
 	src/flags/complex/complex.c\
 	src/flags/medium/medium.c\
 	src/flags/simple/simple.c
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

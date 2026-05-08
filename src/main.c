@@ -6,21 +6,36 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 00:50:20 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+
+int	finish_main(int result, t_stack **a, t_bench_mark *bench)
+{
+	if (result < 0)
+	{
+		error();
+		return (-1);
+	}
+	if (result == 2)
+		return (0);
+	if (bench->display)
+		print_bench(bench);
+	stack_clear(a);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
+	t_stack			*a;
+	t_stack			*b;
+	t_bench_mark	bench;
+	int				result;
+
 	if (argc == 1)
 		return (-1);
-	t_stack		*a;
-	t_stack		*b;
-	t_bench_mark	bench;
-
 	if (only_null(argv) == -1)
 	{
 		error();
@@ -31,19 +46,8 @@ int	main(int argc, char **argv)
 	bench = init_bench(bench);
 	if (ft_strncmp(argv[1], "--bench", 9) == 0)
 		bench.display = true;
-	if (parse_flags(&a, &b, argv, &bench, 1) < 0)
-	{
-		error();
-		return (-1);
-	}
-	if (parse_flags(&a, &b, argv, &bench, 1) == 2)
-		return (-1);
-	if (bench.display)
-	{
-		print_bench(&bench);
-	}
-	stack_clear(&a);
-	return (0);
+	result = parse_flags(&a, &b, &bench, (t_parse_ctx){argv, 1, 3});
+	return (finish_main(result, &a, &bench));
 }
 
 int	only_null(char **argv)

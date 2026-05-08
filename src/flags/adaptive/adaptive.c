@@ -6,13 +6,19 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 12:25:38 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 00:39:57 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	adaptive_flags(t_stack **a, t_stack **b, t_bench_mark *bench)
+int	adaptive_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+	t_parse_ctx input)
 {
+	bench->strategy = 3;
+	if (run_strategy(a, input) < 0)
+		return (-1);
+	bench->disorder = disorder_rate(*a);
 	sort_choose(a, b, bench);
+	return (1);
 }

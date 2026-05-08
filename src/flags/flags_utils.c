@@ -1,51 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*   flags_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 02:02:43 by deferrei          #+#    #+#             */
+/*   Created: 2026/05/08 01:58:04 by deferrei          #+#    #+#             */
 /*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	push_a(t_stack **stack, t_stack **b, t_bench_mark *bench)
+char	**build_argv_view(char **argv, int start)
 {
-	size_t	min_pos;
+	char	**view;
 	size_t	count;
-	size_t	size;
-	t_stack	*min;
+	size_t	index;
 
-	while (*stack)
+	count = 0;
+	while (argv[start + count])
+		count++;
+	view = ft_calloc(count + 2, sizeof(char *));
+	if (!view)
+		return (NULL);
+	view[0] = argv[0];
+	index = 0;
+	while (index < count)
 	{
-		min = find_min(*stack);
-		min_pos = get_position(*stack, min);
-		size = stack_size(*stack);
-		if (min_pos <= size / 2)
-		{
-			while (min_pos--)
-				ra(stack, bench);
-		}
-		else
-		{
-			count = size - min_pos;
-			while (count--)
-				rra(stack, bench);
-		}
-		pb(stack, b, bench);
+		view[index + 1] = argv[start + index];
+		index++;
 	}
+	return (view);
 }
 
-void	selection_min(t_stack **a, t_stack **b, t_bench_mark *bench)
+int	run_strategy(t_stack **stack, t_parse_ctx input)
 {
-	if (disorder_rate(*a) == 0)
-		return ;
-	push_a(a, b, bench);
-	while (*b)
-	{
-		pa(b, a, bench);
-	}
+	char	**view;
+	int		result;
+
+	view = build_argv_view(input.argv, input.start);
+	if (!view)
+		return (-1);
+	result = parsing_vaidations(stack, view);
+	free(view);
+	if (result < 0)
+		return (-1);
+	else if (result == 2)
+		return (2);
+	return (0);
 }

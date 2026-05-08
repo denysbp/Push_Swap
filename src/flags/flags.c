@@ -6,118 +6,80 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 18:21:34 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 00:39:37 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 03:12:45 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	**build_argv_view(char **argv, int start)
+int	missing_values(char **argv, int i)
 {
-	char	**view;
-	size_t	count;
-	size_t	index;
-
-	count = 0;
-	while (argv[start + count])
-		count++;
-	view = ft_calloc(count + 2, sizeof(char *));
-	if (!view)
-		return (NULL);
-	view[0] = argv[0];
-	index = 0;
-	while (index < count)
-	{
-		view[index + 1] = argv[start + index];
-		index++;
-	}
-	return (view);
-}
-
-int	run_strategy(t_stack **stack, char **argv, int start)
-{
-	char	**view;
-	int		result;
-
-	view = build_argv_view(argv, start);
-	if (!view)
-		return (-1);
-	result = parsing_vaidations(stack, view);
-	free(view);
-	if (result < 0)
-		return (-1);
-	else if (result == 2)
+	if (!argv[i + 1])
 		return (2);
 	return (0);
 }
 
-int		parse_flags(t_stack **a, t_stack **b, char **argv, t_bench_mark *bench, int i)
+static int	handle_mode(t_stack **a, t_stack **b, t_bench_mark *bench,
+	t_parse_ctx input)
 {
-	if (!argv[i])
-		return (-1);
-	if (ft_strncmp("--bench", argv[i], 9) == 0)
+	if (missing_values(input.argv, input.start) == 2)
+		return (2);
+	input.start++;
+	if (input.mode == 0)
+		return (simple_flag(a, b, bench, input));
+	if (input.mode == 1)
+		return (medium_flags(a, b, bench, input));
+	if (input.mode == 2)
+		return (complex_flags(a, b, bench, input));
+	return (adaptive_flags(a, b, bench, input));
+}
+
+static int	dispatch_flag(t_stack **a, t_stack **b, t_bench_mark *bench,
+	t_parse_ctx input)
+{
+	if (ft_strncmp("--simple", input.argv[input.start], 10) == 0)
 	{
-		bench->display = true;
-		if (parse_flags(a, b, argv, bench, i + 1) < 0)
-			return (-1);
+		input.mode = 0;
+		return (handle_mode(a, b, bench, input));
 	}
-	else if (ft_strncmp("--simple", argv[i], 10) == 0)
+	if (ft_strncmp("--medium", input.argv[input.start], 10) == 0)
 	{
-		bench->strategy = 0;
-		if (run_strategy(a, argv, i + 1) < 0)
-			return (-1);
-		assign_index(a);
-		bench->disorder = disorder_rate(*a);
-		selection_min(a, b, bench);
-		return (1);
+		input.mode = 1;
+		return (handle_mode(a, b, bench, input));
 	}
-	else if (ft_strncmp("--medium", argv[i], 10) == 0)
+	if (ft_strncmp("--complex", input.argv[input.start], 10) == 0)
 	{
-		bench->strategy = 1;
-		if (run_strategy(a, argv, i + 1) < 0)
-			return (-1);
-		assign_index(a);
-		bench->disorder = disorder_rate(*a);
-		chunck_sort(a, b, bench);
-		return (1);
+		input.mode = 2;
+		return (handle_mode(a, b, bench, input));
 	}
-	else if (ft_strncmp("--complex", argv[i], 10) == 0)
+	if (ft_strncmp("--adaptive", input.argv[input.start], 11) == 0)
 	{
-		bench->strategy = 2;
-		if (run_strategy(a, argv, i + 1) < 0)
-			return (-1);
-		bench->disorder = disorder_rate(*a);
-		radix(a, b, bench);
-		return (1);
+		input.mode = 3;
+		return (handle_mode(a, b, bench, input));
 	}
-	else if (ft_strncmp("--adaptive", argv[i], 11) == 0)
+	return (adaptive_flags(a, b, bench, input));
+}
+
+int	parse_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input)
+{
+	if (!input.argv[input.start])
+		return (2);
+	if (ft_strncmp("--bench", input.argv[input.start], 9) == 0)
 	{
-		bench->strategy = 3;
-		if (run_strategy(a, argv, i + 1) < 0)
-			return (-1);
-		bench->disorder = disorder_rate(*a);
-		sort_choose(a, b, bench);
-		return (1);
+		if (missing_values(input.argv, input.start) == 2)
+			return (2);
+		input.start++;
+		return (parse_flags(a, b, bench, input));
 	}
-	else
-	{
-		bench->strategy = 3;
-		if (run_strategy(a, argv, i) < 0)
-			return (-1);
-		bench->disorder = disorder_rate(*a);
-		assign_index(a);
-		sort_choose(a, b, bench);
-		return (1);
-	}
+	return (dispatch_flag(a, b, bench, input));
 	return (1);
 }
 
-int		parsing_vaidations(t_stack **stack, char **argv)
+int	parsing_vaidations(t_stack **stack, char **argv)
 {
 	if (!validate_args(argv))
-	{
 		return (-1);
-	}
 	*stack = parsing(argv);
 	if (!*stack)
 	{
@@ -129,8 +91,7 @@ int		parsing_vaidations(t_stack **stack, char **argv)
 		stack_clear(stack);
 		return (-1);
 	}
-	float d = disorder_rate(*stack);
-	if (d == 0)
+	if (disorder_rate(*stack) == 0.00)
 		return (2);
 	return (0);
 }

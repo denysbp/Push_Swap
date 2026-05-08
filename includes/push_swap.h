@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 00:50:49 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_parse_ctx
+{
+	char	**argv;
+	int		start;
+	int		mode;
+}	t_parse_ctx;
+
 void			print_float(float ds);
 void			stack_clear(t_stack **stack);
 void			swap(int *a, int *b);
@@ -60,10 +67,17 @@ void			chunck_sort(t_stack	**stack, t_stack **b, t_bench_mark *bench);
 void			radix(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			assign_index(t_stack **stack);
 void			print_bench(t_bench_mark *bench);
-void			adaptive_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
-void			complex_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
-void			medium_flags(t_stack **a, t_stack **b, t_bench_mark *bench);
-void			simple_flag(t_stack **a, t_stack **b, t_bench_mark *bench);
+size_t			strategy(t_bench_mark *bench);
+void			print_bench_2(t_bench_mark *bench);
+int				adaptive_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
+int				complex_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
+int				medium_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
+int				simple_flag(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
+int				finish_main(int result, t_stack **a, t_bench_mark *bench);
 void			sort_three(t_stack **a, t_bench_mark *bench);
 void			sort_four(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			sort_five(t_stack **a, t_stack **b, t_bench_mark *bench);
@@ -74,15 +88,20 @@ bool			valide_signal(char *string);
 bool			is_signal(char string);
 bool			check_numbers(char *string);
 bool			validate_args(char **argv);
-int				parse_flags(t_stack **a, t_stack **b, char **argv,\
-	 t_bench_mark *bench, int i);
+int				parse_flags(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
 int				parsing_vaidations(t_stack **stack, char **argv);
+int				only_null(char **argv);
+int				handle_bench(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
+int				handle_strategy(t_stack **a, t_stack **b, t_bench_mark *bench,
+					t_parse_ctx input);
 void			op_swap_stack(t_stack **name);
 void			sa(t_stack **a, t_bench_mark *bench);
 void			sb(t_stack **b, t_bench_mark *bench);
 void			op_rot_stack(t_stack **stack);
 void			op_rev_stack(t_stack **stack);
-void			op_swap_both(t_stack **s1, t_stack **s2, t_bench_mark *bench);
+void			ss(t_stack **s1, t_stack **s2, t_bench_mark *bench);
 void			rr(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			rrr(t_stack **a, t_stack **b, t_bench_mark *bench);
 void			push(t_stack **src, t_stack **dest);
@@ -101,7 +120,6 @@ size_t			is_above_median(t_stack **stack, t_stack *node);
 size_t			stack_size(t_stack *stack);
 size_t			get_position(t_stack *stack, t_stack *target);
 size_t			ft_sqrt(size_t chuncks);
-size_t			strategy(t_bench_mark *bench);
 float			disorder_rate(t_stack *stack);
 t_stack			*last_stack(t_stack *lst);
 t_stack			*new_stack(int content);
@@ -110,6 +128,6 @@ t_stack			*parsing(char **argv);
 t_stack			*find_min(t_stack *a);
 t_bench_mark	init_bench(t_bench_mark bench);
 char			**build_argv_view(char **argv, int start);
-int				run_strategy(t_stack **stack, char **argv, int start);
+int				run_strategy(t_stack **stack, t_parse_ctx input);
 
 #endif

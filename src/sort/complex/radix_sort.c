@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:55 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:07:03 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 00:57:10 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	radix(t_stack **a, t_stack **b, t_bench_mark *bench)
 	assign_index(a);
 	mask = 1;
 	checkpoint = stack_size(*a);
+	if (disorder_rate(*a) == 0)
+		return ;
 	while (disorder_rate(*a))
 	{
 		n = checkpoint;

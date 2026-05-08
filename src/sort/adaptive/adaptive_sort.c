@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:17:05 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:54:34 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 01:37:07 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	sort_choose(t_stack **a, t_stack **b, t_bench_mark *bench)
 	size_t	size;
 
 	size = stack_size(*a);
-	if (size == 1)
-		return ;
 	disorder = disorder_rate(*a);
+	if (size == 1 || disorder == 0.00)
+		return ;
+	assign_index(a);
 	if (size > 1 && size <= 5)
 	{
 		tiny_sort(a, b, bench);
+		return ;
 	}
 	if (disorder < 0.2)
 	{
