@@ -6,7 +6,7 @@
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/08 09:25:27 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/08 10:03:37 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 
 	assign_index(a);
 	min = find_min(*a);
-	if (min->index >= 2)
+	if (min->index < 2)
 	{
 		while (min != *a)
 		{
@@ -60,7 +60,7 @@ void	sort_five(t_stack **a, t_stack **b, t_bench_mark *bench)
 
 	assign_index(a);
 	min = find_min(*a);
-	if (min->index >= 3)
+	if (min->index < 3)
 	{
 		while (min != *a)
 		{
