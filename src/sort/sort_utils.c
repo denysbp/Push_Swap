@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 02:17:26 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 09:25:37 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,3 @@ size_t	get_position(t_stack *stack, t_stack *target)
 	return (0);
 }
 
-size_t	is_above_median(t_stack **stack, t_stack *node)
-{
-	return (node->index < (int)(stack_size(*stack) / 2));
-}

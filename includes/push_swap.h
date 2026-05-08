@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 09:25:43 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void			stack_selection(t_stack **a, t_stack **b, int mask,\
 	t_bench_mark *bench);
 
 long			ft_atoi_safe(const char *str);
-size_t			is_above_median(t_stack **stack, t_stack *node);
 size_t			stack_size(t_stack *stack);
 size_t			get_position(t_stack *stack, t_stack *target);
 size_t			ft_sqrt(size_t chuncks);

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:05:47 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 08:32:47 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/push_swap.h"
 
 size_t	ft_sqrt(size_t chuncks)
 {

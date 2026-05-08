@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 19:40:48 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/05/08 02:48:08 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/08 09:25:27 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,21 @@ void	sort_four(t_stack **a, t_stack **b, t_bench_mark *bench)
 
 	assign_index(a);
 	min = find_min(*a);
-	if (is_above_median(a, min))
+	if (min->index >= 2)
 	{
 		while (min != *a)
+		{
 			ra(a, bench);
+			min = find_min(*a);
+		}
 	}
 	else
 	{
 		while (min != *a)
+		{
 			rra(a, bench);
+			min = find_min(*a);
+		}
 	}
 	pb(a, b, bench);
 	sort_three(a, bench);
@@ -54,18 +60,25 @@ void	sort_five(t_stack **a, t_stack **b, t_bench_mark *bench)
 
 	assign_index(a);
 	min = find_min(*a);
-	if (is_above_median(a, min))
+	if (min->index >= 3)
 	{
 		while (min != *a)
+		{
 			ra(a, bench);
+			min = find_min(*a);
+		}
 	}
 	else
 	{
 		while (min != *a)
+		{
 			rra(a, bench);
+			min = find_min(*a);
+		}
 	}
 	pb(a, b, bench);
 	sort_four(a, b, bench);
+	pa(b, a, bench);
 }
 
 void	tiny_sort(t_stack **a, t_stack **b, t_bench_mark *bench)

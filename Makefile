@@ -15,7 +15,6 @@ SRC = \
 	src/validation/check_numbers.c \
 	src/validation/check_duplicates.c \
 	src/validation/check_overflow.c \
-	src/stack/stack_init.c \
 	src/stack/stack_utils.c \
 	src/stack/stack_free.c \
 	src/operations/swap.c \
