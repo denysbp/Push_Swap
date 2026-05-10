@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:22 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 17:01:21 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 17:25:26 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

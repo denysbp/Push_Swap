@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:48 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 09:25:43 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 17:03:26 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int				handle_bench(t_stack **a, t_stack **b, t_bench_mark *bench,
 					t_parse_ctx input);
 int				handle_strategy(t_stack **a, t_stack **b, t_bench_mark *bench,
 					t_parse_ctx input);
+int				is_onlys_space(char **argv);
 void			op_swap_stack(t_stack **name);
 void			sa(t_stack **a, t_bench_mark *bench);
 void			sb(t_stack **b, t_bench_mark *bench);

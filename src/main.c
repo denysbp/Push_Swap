@@ -6,7 +6,7 @@
 /*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:42 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 14:10:07 by deferrei         ###   ########.fr       */
+/*   Updated: 2026/05/10 17:38:03 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,14 @@ int	main(int argc, char **argv)
 		error();
 		return (-1);
 	}
+	if (!is_onlys_space(argv))
+	{
+		error();
+		return (-1);
+	}
 	a = NULL;
 	b = NULL;
+	bench = (t_bench_mark){0};
 	bench = init_bench(bench);
 	if (ft_strncmp(argv[1], "--bench", 9) == 0)
 		bench.display = true;
@@ -59,6 +65,30 @@ int	only_null(char **argv)
 	{
 		if (argv[i][0] == '\0')
 			return (-1);
+		i++;
+	}
+	return (1);
+}
+
+int	is_onlys_space(char **argv)
+{
+	int		i;
+	int		j;
+	size_t	ok;
+
+	i = 1;
+	ok = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (argv[i][j] == ' ')
+				ok++;
+			j++;
+		}
+		if (ok == ft_strlen(argv[i]))
+			return (0);
 		i++;
 	}
 	return (1);

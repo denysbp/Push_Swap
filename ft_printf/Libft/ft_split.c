@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 09:14:22 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 09:52:58 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 17:25:11 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,18 +99,11 @@ char	**ft_split(char const *s, char c)
 }
 
 // #include <stdio.h>
-// int	main(int ac, char **av)
+// int	main()
 // {
-// 	if (ac != 3)
-// 		return (1);
-// 	char	sep = av[2][0];
-// 	char	**p1 = ft_split(av[1], sep);
+// 	char	**p1 = ft_split("               ", ' ');
 // 	int		i = 0;
-// 	while (p1[i])
-// 	{
-// 		printf("%s\n", p1[i]);
-// 		i++;
-// 	}
+// 	printf("tamanho: %ld", ft_strlen(p1[0]));
 // 	free_content(p1);
 // 	return (0);
 // }
