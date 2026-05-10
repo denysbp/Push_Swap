@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:06:12 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/08 10:03:16 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 11:45:32 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ size_t	get_position(t_stack *stack, t_stack *target)
 	}
 	return (0);
 }
-
