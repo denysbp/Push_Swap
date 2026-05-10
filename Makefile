@@ -4,7 +4,6 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 NAME = push_swap
 
-LIBFT = libft/libft.a
 PRINTF = ft_printf/libftprintf.a
 
 SRC = \
@@ -45,19 +44,24 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	make -C libft
+$(PRINTF):
 	make -C ft_printf
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
+
+$(NAME): $(OBJ)
+	make -C ft_printf
+	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) -o $(NAME)
+
+%.o: %.c
+	cc $(CFLAGS) -c $< -o $@
 
 clean:
-	make clean -C libft
 	make clean -C ft_printf
 	rm -f $(OBJ)
 
 fclean: clean
-	make fclean -C libft
 	make fclean -C ft_printf
 	rm -f $(NAME)
+
 re: fclean all
-.PHONY: all clean fclean re $(NAME)
+
+.PHONY: all clean fclean re

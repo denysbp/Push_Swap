@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/29 13:20:39 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/04/01 12:53:21 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	va_list	args;
-	int		i;
+	t_list	*p1;
+	t_list	*temp;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
-	i = 0;
-	while (*s)
+	if (!lst || !del)
+		return ;
+	p1 = *lst;
+	while (p1)
 	{
-		if (*s == '%')
-		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
-		}
-		else
-			i += ft_helpme(s);
-		s++;
+		del(p1->content);
+		temp = p1->next;
+		free(p1);
+		p1 = temp;
 	}
-	va_end(args);
-	return (i);
+	*lst = NULL;
 }

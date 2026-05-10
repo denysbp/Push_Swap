@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/27 09:58:02 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/04/01 13:01:33 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	va_list	args;
-	int		i;
+	unsigned int	j;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
-	i = 0;
-	while (*s)
+	if (size > 0)
 	{
-		if (*s == '%')
+		j = 0;
+		while (src[j] && j < size - 1)
 		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
+			dest[j] = src[j];
+			j++;
 		}
-		else
-			i += ft_helpme(s);
-		s++;
+		dest[j] = '\0';
 	}
-	va_end(args);
-	return (i);
+	return (ft_strlen(src));
 }
