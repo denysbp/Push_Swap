@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:33 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:37:47 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 13:13:06 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ void	rrb(t_stack **b, t_bench_mark *bench)
 
 void	rrr(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
-	rra(a, bench);
-	rrb(b, bench);
-	bench->rra--;
-	bench->rrb--;
+	op_rev_stack(a);
+	op_rev_stack(b);
 	bench->rrr++;
 	ft_printf("rrr\n");
 }

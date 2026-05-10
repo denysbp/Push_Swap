@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: deferrei <deferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:07:36 by deferrei          #+#    #+#             */
-/*   Updated: 2026/05/07 21:50:45 by pecoelho         ###   ########.fr       */
+/*   Updated: 2026/05/10 13:13:54 by deferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	rr(t_stack **a, t_stack **b, t_bench_mark *bench)
 {
 	if (!a || !b || !*a || !*b)
 		return ;
-	ra(a, bench);
-	rb(b, bench);
-	bench->ra--;
-	bench->rb--;
+	op_rot_stack(b);
+	op_rot_stack(a);
 	bench->rr++;
 }
