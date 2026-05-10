@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/29 09:24:42 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/03/29 09:50:22 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+t_list	*ft_lstlast(t_list *lst)
 {
-	va_list	args;
-	int		i;
+	t_list	*p1;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
-	i = 0;
-	while (*s)
-	{
-		if (*s == '%')
-		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
-		}
-		else
-			i += ft_helpme(s);
-		s++;
-	}
-	va_end(args);
-	return (i);
+	if (!lst)
+		return (NULL);
+	p1 = lst;
+	while (p1->next)
+		p1 = p1->next;
+	return (p1);
 }

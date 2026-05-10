@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/27 09:58:17 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/03/27 09:58:18 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	va_list	args;
-	int		i;
+	size_t	i;
+	size_t	j;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
+	if (s2[0] == '\0')
+		return ((char *)s1);
 	i = 0;
-	while (*s)
+	while (s1[i] && i < n)
 	{
-		if (*s == '%')
+		j = 0;
+		while (s1[i + j] && (s1[i + j] == s2[j])
+			&& ((i + j) < n))
 		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
+			if (s2[j + 1] == '\0')
+				return ((char *)&s1[i]);
+			j++;
 		}
-		else
-			i += ft_helpme(s);
-		s++;
+		i++;
 	}
-	va_end(args);
-	return (i);
+	return (NULL);
 }

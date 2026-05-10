@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/27 09:57:11 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/03/27 09:57:12 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	va_list	args;
-	int		i;
+	const unsigned char	*p;
+	const unsigned char	*s;
+	size_t				i;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
+	p = (const unsigned char *)s1;
+	s = (const unsigned char *)s2;
 	i = 0;
-	while (*s)
+	while (i < n)
 	{
-		if (*s == '%')
-		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
-		}
-		else
-			i += ft_helpme(s);
-		s++;
+		if (p[i] != s[i])
+			return (p[i] - s[i]);
+		i++;
 	}
-	va_end(args);
-	return (i);
+	return (0);
 }

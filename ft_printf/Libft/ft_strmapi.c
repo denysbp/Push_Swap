@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/27 11:05:41 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/03/27 18:40:40 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	va_list	args;
-	int		i;
+	char			*p;
+	unsigned int	i;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
+	if (!s || !f)
+		return (NULL);
+	p = malloc(ft_strlen(s) + 1);
+	if (!p)
+		return (NULL);
 	i = 0;
-	while (*s)
+	while (s[i])
 	{
-		if (*s == '%')
-		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
-		}
-		else
-			i += ft_helpme(s);
-		s++;
+		p[i] = f(i, s[i]);
+		i++;
 	}
-	va_end(args);
-	return (i);
+	p[i] = '\0';
+	return (p);
 }

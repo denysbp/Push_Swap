@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecoelho <pecoelho@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 18:17:20 by pecoelho          #+#    #+#             */
-/*   Updated: 2026/04/20 20:38:38 by pecoelho         ###   ########.fr       */
+/*   Created: 2026/03/27 09:56:00 by pecoelho          #+#    #+#             */
+/*   Updated: 2026/03/27 09:56:00 by pecoelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	ft_bzero(void *s, size_t n)
 {
-	va_list	args;
-	int		i;
+	unsigned char	*t;
 
-	if (!s)
-		return (-1);
-	va_start(args, s);
-	i = 0;
-	while (*s)
-	{
-		if (*s == '%')
-		{
-			if (ft_strchr("cs%", *(s + 1)))
-				i += ft_printf_chr(args, *(s + 1));
-			else if (ft_strchr("pdiuxX", *(s + 1)))
-				i += ft_printf_num(args, *(s + 1));
-			s++;
-		}
-		else
-			i += ft_helpme(s);
-		s++;
-	}
-	va_end(args);
-	return (i);
+	t = (unsigned char *)s;
+	while (n--)
+		*t++ = 0;
 }
